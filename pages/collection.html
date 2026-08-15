@@ -47,49 +47,41 @@
           </div>
           <div class="deck-stats">
             <div class="stat-item">Mana Prom: <span id="stat-mana">0.0</span></div>
-            <div class="stat-item">Ataque Total: <span id="stat-atk">0</span></div>
-            <div class="stat-item">Defensa Total: <span id="stat-def">0</span></div>
+            <div class="stat-item">Daño Total: <span id="stat-damage">0</span></div>
           </div>
         </div>
 
         <!-- 5 Espacios / Slots Vacíos para las cartas seleccionadas -->
         <div class="deck-slots-grid" id="deck-slots-container">
-          
-          <!-- Slot 1 Vacío -->
           <div class="deck-slot empty" id="deck-slot-1" data-slot="1">
             <div class="slot-icon">➕</div>
             <div class="slot-number">SLOT 1</div>
             <span style="font-size: 0.7rem; color: #94a3b8; margin-top: 0.2rem;">Vacío</span>
           </div>
 
-          <!-- Slot 2 Vacío -->
           <div class="deck-slot empty" id="deck-slot-2" data-slot="2">
             <div class="slot-icon">➕</div>
             <div class="slot-number">SLOT 2</div>
             <span style="font-size: 0.7rem; color: #94a3b8; margin-top: 0.2rem;">Vacío</span>
           </div>
 
-          <!-- Slot 3 Vacío -->
           <div class="deck-slot empty" id="deck-slot-3" data-slot="3">
             <div class="slot-icon">➕</div>
             <div class="slot-number">SLOT 3</div>
             <span style="font-size: 0.7rem; color: #94a3b8; margin-top: 0.2rem;">Vacío</span>
           </div>
 
-          <!-- Slot 4 Vacío -->
           <div class="deck-slot empty" id="deck-slot-4" data-slot="4">
             <div class="slot-icon">➕</div>
             <div class="slot-number">SLOT 4</div>
             <span style="font-size: 0.7rem; color: #94a3b8; margin-top: 0.2rem;">Vacío</span>
           </div>
 
-          <!-- Slot 5 Vacío -->
           <div class="deck-slot empty" id="deck-slot-5" data-slot="5">
             <div class="slot-icon">➕</div>
             <div class="slot-number">SLOT 5</div>
             <span style="font-size: 0.7rem; color: #94a3b8; margin-top: 0.2rem;">Vacío</span>
           </div>
-
         </div>
       </section>
 
@@ -111,7 +103,7 @@
       <!-- Grilla de la Colección General de Cartas Disponibles -->
       <section class="cards-collection-grid" id="collection-grid">
         
-        <!-- Carta 1 de Muestra -->
+        <!-- Carta 1: Dragón Infernal -->
         <div class="card-item" data-rarity="legendary" data-card-id="1">
           <div class="card-header-bar">
             <span class="card-mana-badge">5</span>
@@ -126,15 +118,25 @@
               <span>Dragón</span>
               <span style="color: var(--rarity-legendary);">Legendaria</span>
             </div>
+            
+            <p class="card-description">Señor de los volcanes que abrasa el campo enemigo con un aliento de fuego incandescente.</p>
+
+            <div class="card-skills-container">
+              <span class="card-skills-title">Habilidades:</span>
+              <ul class="card-skills-list">
+                <li class="card-skill-item">Aliento Abrasador</li>
+                <li class="card-skill-item">Furia de Lava</li>
+              </ul>
+            </div>
+
             <div class="card-stats-footer">
-              <span class="stat-badge atk">⚔️ 3000</span>
-              <span class="stat-badge def">🛡️ 2800</span>
+              <span class="stat-badge damage">💥 Daño: 3200</span>
             </div>
             <button class="card-action-btn">+ Agregar al Mazo</button>
           </div>
         </div>
 
-        <!-- Carta 2 de Muestra -->
+        <!-- Carta 2: Mago de Hielo -->
         <div class="card-item" data-rarity="rare" data-card-id="2">
           <div class="card-header-bar">
             <span class="card-mana-badge">4</span>
@@ -149,15 +151,25 @@
               <span>Hechicero</span>
               <span style="color: var(--rarity-rare);">Rara</span>
             </div>
+
+            <p class="card-description">Maestro del frío eterno que congela las tropas enemigas y ralentiza sus movimientos.</p>
+
+            <div class="card-skills-container">
+              <span class="card-skills-title">Habilidades:</span>
+              <ul class="card-skills-list">
+                <li class="card-skill-item">Ráfaga Helada</li>
+                <li class="card-skill-item">Prisión de Hielo</li>
+              </ul>
+            </div>
+
             <div class="card-stats-footer">
-              <span class="stat-badge atk">⚔️ 1800</span>
-              <span class="stat-badge def">🛡️ 1500</span>
+              <span class="stat-badge damage">💥 Daño: 1800</span>
             </div>
             <button class="card-action-btn">+ Agregar al Mazo</button>
           </div>
         </div>
 
-        <!-- Carta 3 de Muestra -->
+        <!-- Carta 3: Asesino Sombrío -->
         <div class="card-item" data-rarity="epic" data-card-id="3">
           <div class="card-header-bar">
             <span class="card-mana-badge">3</span>
@@ -172,15 +184,25 @@
               <span>Pícaro</span>
               <span style="color: var(--rarity-epic);">Épica</span>
             </div>
+
+            <p class="card-description">Guerrero furtivo que se mueve entre las sombras e inflige ataques críticos letales.</p>
+
+            <div class="card-skills-container">
+              <span class="card-skills-title">Habilidades:</span>
+              <ul class="card-skills-list">
+                <li class="card-skill-item">Dagas Venenosas</li>
+                <li class="card-skill-item">Paso de Sombra</li>
+              </ul>
+            </div>
+
             <div class="card-stats-footer">
-              <span class="stat-badge atk">⚔️ 2200</span>
-              <span class="stat-badge def">🛡️ 1100</span>
+              <span class="stat-badge damage">💥 Daño: 2400</span>
             </div>
             <button class="card-action-btn">+ Agregar al Mazo</button>
           </div>
         </div>
 
-        <!-- Carta 4 de Muestra -->
+        <!-- Carta 4: Golem de Cristal -->
         <div class="card-item" data-rarity="rare" data-card-id="4">
           <div class="card-header-bar">
             <span class="card-mana-badge">3</span>
@@ -195,9 +217,19 @@
               <span>Criatura</span>
               <span style="color: var(--rarity-rare);">Rara</span>
             </div>
+
+            <p class="card-description">Coloso de piedra imbuido con energía telúrica que aplasta la primera línea enemiga.</p>
+
+            <div class="card-skills-container">
+              <span class="card-skills-title">Habilidades:</span>
+              <ul class="card-skills-list">
+                <li class="card-skill-item">Impacto Telúrico</li>
+                <li class="card-skill-item">Onda Terrestre</li>
+              </ul>
+            </div>
+
             <div class="card-stats-footer">
-              <span class="stat-badge atk">⚔️ 1200</span>
-              <span class="stat-badge def">🛡️ 2200</span>
+              <span class="stat-badge damage">💥 Daño: 1500</span>
             </div>
             <button class="card-action-btn">+ Agregar al Mazo</button>
           </div>
