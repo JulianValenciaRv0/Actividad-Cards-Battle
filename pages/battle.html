@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mythic Clash - Arena de Batalla (5 vs 5)</title>
-  <meta name="description" content="Enfrentamiento estratégico de batalla de cartas 5 vs 5 contra la IA.">
+  <title>Mythic Clash - Arena de Batalla (1vs1 & 5vs5)</title>
+  <meta name="description" content="Enfrentamiento de cartas 1 vs 1 con vista general de tablero 5 vs 5 y habilidades místicas.">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -34,11 +34,11 @@
     </div>
   </header>
 
-  <!-- PÁGINA DE BATALLA (ARENA 5 VS 5) -->
+  <!-- PÁGINA DE BATALLA (ARENA REDISEÑADA) -->
   <main class="page-view active">
     <div class="arena-view-container">
 
-      <!-- HUD Superior: Oponente (IA) -->
+      <!-- HUD Superior: Oponente (IA General) -->
       <div class="hud-panel opponent-hud">
         <div class="combatant-info">
           <div class="combatant-avatar opponent-avatar">🤖</div>
@@ -50,8 +50,8 @@
 
         <div class="hp-bar-container">
           <div class="hp-bar-label">
-            <span>VIDA IA</span>
-            <span id="ai-hp-text">100 / 100</span>
+            <span>VIDA TOTAL IA</span>
+            <span id="ai-hp-text">1000 / 1000</span>
           </div>
           <div class="hp-bar-track">
             <div class="hp-bar-fill" id="ai-hp-bar" style="width: 100%;"></div>
@@ -59,179 +59,198 @@
         </div>
       </div>
 
-      <!-- Tablero de Enfrentamiento (Battlefield 5 vs 5) -->
-      <div class="battlefield-stage">
+      <!-- SECCIÓN 1: ENFRENTAMIENTO DIRECTO 1 VS 1 (Cartas Grandes en Combate) -->
+      <section class="clash-stage-1vs1">
         
-        <!-- Campo de la IA (5 Slots Vacíos) -->
-        <div class="arena-zone ai-zone" id="ai-battlefield">
-          <div class="field-slot" id="ai-slot-1">
-            <span>🤖</span>
-            <span>SLOT IA 1</span>
+        <!-- Carta Grande Activa de la IA -->
+        <div class="active-clash-card">
+          <div class="card-clash-slot">
+            <div class="card-item" data-rarity="rare" id="ai-active-card">
+              <div class="card-header-bar">
+                <span class="card-mana-badge">4</span>
+                <span class="card-name-title">Mago de Hielo</span>
+                <span class="card-element-tag">❄️</span>
+              </div>
+              <div class="card-image-wrapper">
+                <img src="../assets/images/frost_mage.jpg" alt="Carta IA en combate">
+              </div>
+              <div class="card-body-details" style="padding: 0.4rem;">
+                <div class="card-stats-footer">
+                  <span class="stat-badge hp">❤️ 950</span>
+                  <span class="stat-badge damage">💥 160</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="field-slot" id="ai-slot-2">
-            <span>🤖</span>
-            <span>SLOT IA 2</span>
-          </div>
-          <div class="field-slot" id="ai-slot-3">
-            <span>🤖</span>
-            <span>SLOT IA 3</span>
-          </div>
-          <div class="field-slot" id="ai-slot-4">
-            <span>🤖</span>
-            <span>SLOT IA 4</span>
-          </div>
-          <div class="field-slot" id="ai-slot-5">
-            <span>🤖</span>
-            <span>SLOT IA 5</span>
+          <!-- Barra de Vida Individual de la Carta de la IA -->
+          <div class="card-clash-hp">
+            <div class="card-clash-hp-text">
+              <span>VIDA CARTA IA</span>
+              <span id="ai-card-hp-val">950 / 950</span>
+            </div>
+            <div class="card-clash-hp-bar">
+              <div class="card-clash-hp-fill ai" id="ai-card-hp-fill" style="width: 100%;"></div>
+            </div>
           </div>
         </div>
 
-        <!-- Zona de Choque VS & Registro de Combate -->
+        <!-- Zona Central de Choque VS -->
         <div class="arena-clash-center">
+          <div class="vs-badge-glow">VS</div>
           <div class="turn-banner" id="turn-indicator">RONDA 1 • TU TURNO</div>
           <div class="battle-log-ticker" id="battle-log">
-            ⚔️ ¡Comienza la batalla! Selecciona tus cartas y habilidades para atacar.
+            ⚔️ ¡Enfrentamiento activo! Selecciona tu habilidad para atacar a la carta de la IA.
           </div>
           <button class="btn-end-turn" id="btn-end-turn">FINALIZAR TURNO ⌛</button>
         </div>
 
-        <!-- Campo del Jugador (5 Slots Vacíos) -->
-        <div class="arena-zone player-zone" id="player-battlefield">
-          <div class="field-slot" id="player-field-1">
-            <span>🎮</span>
-            <span>TU SLOT 1</span>
-          </div>
-          <div class="field-slot" id="player-field-2">
-            <span>🎮</span>
-            <span>TU SLOT 2</span>
-          </div>
-          <div class="field-slot" id="player-field-3">
-            <span>🎮</span>
-            <span>TU SLOT 3</span>
-          </div>
-          <div class="field-slot" id="player-field-4">
-            <span>🎮</span>
-            <span>TU SLOT 4</span>
-          </div>
-          <div class="field-slot" id="player-field-5">
-            <span>🎮</span>
-            <span>TU SLOT 5</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Panel de Control del Jugador (HUD + Habilidades + Mano) -->
-      <div>
-        <div class="hud-panel player-hud">
-          <div class="combatant-info">
-            <div class="combatant-avatar">🎮</div>
-            <div>
-              <div class="user-name">Jugador (Tú)</div>
-              <div class="user-rank" style="color: var(--neon-cyan);">Nivel 5 • Mazo Listo</div>
+        <!-- Carta Grande Activa del Jugador -->
+        <div class="active-clash-card">
+          <div class="card-clash-slot">
+            <div class="card-item" data-rarity="legendary" id="player-active-card">
+              <div class="card-header-bar">
+                <span class="card-mana-badge">5</span>
+                <span class="card-name-title">Dragón Infernal</span>
+                <span class="card-element-tag">🔥</span>
+              </div>
+              <div class="card-image-wrapper">
+                <img src="../assets/images/dragon.jpg" alt="Tu Carta en combate">
+              </div>
+              <div class="card-body-details" style="padding: 0.4rem;">
+                <div class="card-stats-footer">
+                  <span class="stat-badge hp">❤️ 1200</span>
+                  <span class="stat-badge damage">💥 220</span>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div class="hp-bar-container">
-            <div class="hp-bar-label">
-              <span>TU VIDA</span>
-              <span id="player-hp-text">100 / 100</span>
+          <!-- Barra de Vida Individual de la Carta del Jugador -->
+          <div class="card-clash-hp">
+            <div class="card-clash-hp-text">
+              <span>VIDA TU CARTA</span>
+              <span id="player-card-hp-val">1200 / 1200</span>
             </div>
-            <div class="hp-bar-track">
-              <div class="hp-bar-fill player-hp-fill" id="player-hp-bar" style="width: 100%;"></div>
-            </div>
-          </div>
-
-          <!-- Indicador de Maná -->
-          <div class="form-group" style="align-items: flex-end;">
-            <span style="font-size: 0.75rem; font-family: var(--font-heading); color: var(--neon-cyan);">MANÁ <span id="mana-text">5/5</span></span>
-            <div class="mana-crystals-group" id="mana-crystals-container">
-              <div class="mana-crystal"></div>
-              <div class="mana-crystal"></div>
-              <div class="mana-crystal"></div>
-              <div class="mana-crystal"></div>
-              <div class="mana-crystal"></div>
+            <div class="card-clash-hp-bar">
+              <div class="card-clash-hp-fill" id="player-card-hp-fill" style="width: 100%;"></div>
             </div>
           </div>
         </div>
 
-        <!-- PANEL DE HABILIDADES DE COMBATE (4 Normales, 1 Especial, 1 Escudo) -->
-        <section class="skills-control-panel">
-          <div class="skills-panel-header">
-            <span class="skills-panel-title">⚡ Habilidades de Combate (4 Normales • 1 Especial • 1 Escudo)</span>
-          </div>
+      </section>
 
-          <div class="skills-grid" id="skills-container">
-            
-            <!-- Habilidad Normal 1 -->
-            <button class="skill-btn skill-normal" id="skill-attack-basic" data-skill-type="normal" data-mana="1">
-              <span class="skill-cost-badge">1</span>
-              <div class="skill-icon">⚔️</div>
-              <span class="skill-name">Ataque Básico</span>
-            </button>
-
-            <!-- Habilidad Normal 2 -->
-            <button class="skill-btn skill-normal" id="skill-attack-elemental" data-skill-type="normal" data-mana="2">
-              <span class="skill-cost-badge">2</span>
-              <div class="skill-icon">🔥</div>
-              <span class="skill-name">Ataque Elemental</span>
-            </button>
-
-            <!-- Habilidad Normal 3 -->
-            <button class="skill-btn skill-normal" id="skill-critical" data-skill-type="normal" data-mana="3">
-              <span class="skill-cost-badge">3</span>
-              <div class="skill-icon">💥</div>
-              <span class="skill-name">Golpe Crítico</span>
-            </button>
-
-            <!-- Habilidad Normal 4 -->
-            <button class="skill-btn skill-normal" id="skill-speed-burst" data-skill-type="normal" data-mana="2">
-              <span class="skill-cost-badge">2</span>
-              <div class="skill-icon">⚡</div>
-              <span class="skill-name">Ráfaga Veloz</span>
-            </button>
-
-            <!-- 1 Habilidad Especial (Ulti) -->
-            <button class="skill-btn skill-special" id="skill-ultimate" data-skill-type="special" data-mana="5">
-              <span class="skill-cost-badge">5</span>
-              <div class="skill-icon">🔮</div>
-              <span class="skill-name">Tormenta Mística</span>
-            </button>
-
-            <!-- 1 Habilidad de Escudo -->
-            <button class="skill-btn skill-shield" id="skill-shield" data-skill-type="shield" data-mana="2">
-              <span class="skill-cost-badge">2</span>
-              <div class="skill-icon">🛡️</div>
-              <span class="skill-name">Escudo Rúnico</span>
-            </button>
-
-          </div>
-        </section>
-
-        <!-- Mano del Jugador (5 Slots Vacíos para las cartas del mazo) -->
-        <div class="player-hand-wrapper" id="player-hand">
-          <div class="hand-card-slot" id="hand-slot-1" data-hand-slot="1">
-            <span>🎴</span>
-            <span>CARTA 1</span>
-          </div>
-          <div class="hand-card-slot" id="hand-slot-2" data-hand-slot="2">
-            <span>🎴</span>
-            <span>CARTA 2</span>
-          </div>
-          <div class="hand-card-slot" id="hand-slot-3" data-hand-slot="3">
-            <span>🎴</span>
-            <span>CARTA 3</span>
-          </div>
-          <div class="hand-card-slot" id="hand-slot-4" data-hand-slot="4">
-            <span>🎴</span>
-            <span>CARTA 4</span>
-          </div>
-          <div class="hand-card-slot" id="hand-slot-5" data-hand-slot="5">
-            <span>🎴</span>
-            <span>CARTA 5</span>
+      <!-- SECCIÓN 2: VISTA GENERAL COMPACTA DE TABLERO 5 VS 5 -->
+      <section class="board-overview-5vs5">
+        
+        <!-- Fila de Slots IA (5 Mini Slots) -->
+        <div class="board-team-row ai-row">
+          <span class="board-team-label">🔴 CARTAS IA:</span>
+          <div class="board-mini-slots" id="ai-mini-board">
+            <div class="mini-slot active-card" id="ai-slot-1"><span>❄️</span> Mago</div>
+            <div class="mini-slot" id="ai-slot-2"><span>🤖</span> S2</div>
+            <div class="mini-slot" id="ai-slot-3"><span>🤖</span> S3</div>
+            <div class="mini-slot" id="ai-slot-4"><span>🤖</span> S4</div>
+            <div class="mini-slot" id="ai-slot-5"><span>🤖</span> S5</div>
           </div>
         </div>
 
+        <!-- Fila de Slots Jugador (5 Mini Slots) -->
+        <div class="board-team-row player-row">
+          <span class="board-team-label">🔵 TUS CARTAS:</span>
+          <div class="board-mini-slots" id="player-mini-board">
+            <div class="mini-slot active-card" id="player-slot-1"><span>🔥</span> Dragón</div>
+            <div class="mini-slot" id="player-slot-2"><span>🎮</span> S2</div>
+            <div class="mini-slot" id="player-slot-3"><span>🎮</span> S3</div>
+            <div class="mini-slot" id="player-slot-4"><span>🎮</span> S4</div>
+            <div class="mini-slot" id="player-slot-5"><span>🎮</span> S5</div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- SECCIÓN 3: PANEL DE HABILIDADES DE COMBATE (4 Normales, 1 Ulti, 1 Escudo) -->
+      <section class="skills-control-panel">
+        <div class="skills-panel-header">
+          <span class="skills-panel-title">⚡ Habilidades de Combate (4 Normales • 1 Especial • 1 Escudo)</span>
+        </div>
+
+        <div class="skills-grid" id="skills-container">
+          
+          <!-- Habilidad Normal 1 -->
+          <button class="skill-btn skill-normal" id="skill-attack-basic" data-skill-type="normal" data-mana="1">
+            <span class="skill-cost-badge">1</span>
+            <div class="skill-icon">⚔️</div>
+            <span class="skill-name">Ataque Básico</span>
+          </button>
+
+          <!-- Habilidad Normal 2 -->
+          <button class="skill-btn skill-normal" id="skill-attack-elemental" data-skill-type="normal" data-mana="2">
+            <span class="skill-cost-badge">2</span>
+            <div class="skill-icon">🔥</div>
+            <span class="skill-name">Ataque Elemental</span>
+          </button>
+
+          <!-- Habilidad Normal 3 -->
+          <button class="skill-btn skill-normal" id="skill-critical" data-skill-type="normal" data-mana="3">
+            <span class="skill-cost-badge">3</span>
+            <div class="skill-icon">💥</div>
+            <span class="skill-name">Golpe Crítico</span>
+          </button>
+
+          <!-- Habilidad Normal 4 -->
+          <button class="skill-btn skill-normal" id="skill-speed-burst" data-skill-type="normal" data-mana="2">
+            <span class="skill-cost-badge">2</span>
+            <div class="skill-icon">⚡</div>
+            <span class="skill-name">Ráfaga Veloz</span>
+          </button>
+
+          <!-- 1 Habilidad Especial (Ulti) -->
+          <button class="skill-btn skill-special" id="skill-ultimate" data-skill-type="special" data-mana="5">
+            <span class="skill-cost-badge">5</span>
+            <div class="skill-icon">🔮</div>
+            <span class="skill-name">Tormenta Mística</span>
+          </button>
+
+          <!-- 1 Habilidad de Escudo -->
+          <button class="skill-btn skill-shield" id="skill-shield" data-skill-type="shield" data-mana="2">
+            <span class="skill-cost-badge">2</span>
+            <div class="skill-icon">🛡️</div>
+            <span class="skill-name">Escudo Rúnico</span>
+          </button>
+
+        </div>
+      </section>
+
+      <!-- HUD Inferior: Jugador (General) -->
+      <div class="hud-panel player-hud">
+        <div class="combatant-info">
+          <div class="combatant-avatar">🎮</div>
+          <div>
+            <div class="user-name">Jugador (Tú)</div>
+            <div class="user-rank" style="color: var(--neon-cyan);">Nivel 5 • Mazo Listo</div>
+          </div>
+        </div>
+
+        <div class="hp-bar-container">
+          <div class="hp-bar-label">
+            <span>TU VIDA TOTAL</span>
+            <span id="player-hp-text">1200 / 1200</span>
+          </div>
+          <div class="hp-bar-track">
+            <div class="hp-bar-fill player-hp-fill" id="player-hp-bar" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <!-- Indicador de Maná -->
+        <div class="form-group" style="align-items: flex-end;">
+          <span style="font-size: 0.75rem; font-family: var(--font-heading); color: var(--neon-cyan);">MANÁ <span id="mana-text">5/5</span></span>
+          <div class="mana-crystals-group" id="mana-crystals-container">
+            <div class="mana-crystal"></div>
+            <div class="mana-crystal"></div>
+            <div class="mana-crystal"></div>
+            <div class="mana-crystal"></div>
+            <div class="mana-crystal"></div>
+          </div>
+        </div>
       </div>
 
     </div>

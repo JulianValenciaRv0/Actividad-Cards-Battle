@@ -5,7 +5,8 @@
     "element": "fuego",
     "rarity": "legendary",
     "mana": 5,
-    "damage": 3200,
+    "hp": 1200,
+    "damage": 220,
     "description": "Señor de los volcanes que abrasa el campo enemigo con un aliento de fuego incandescente.",
     "skills": ["Aliento Abrasador", "Furia de Lava"],
     "image": "assets/images/dragon.jpg"
@@ -16,7 +17,8 @@
     "element": "agua",
     "rarity": "rare",
     "mana": 4,
-    "damage": 1800,
+    "hp": 950,
+    "damage": 160,
     "description": "Maestro del frío eterno que congela las tropas enemigas y ralentiza sus movimientos.",
     "skills": ["Ráfaga Helada", "Prisión de Hielo"],
     "image": "assets/images/frost_mage.jpg"
@@ -27,7 +29,8 @@
     "element": "oscuridad",
     "rarity": "epic",
     "mana": 3,
-    "damage": 2400,
+    "hp": 800,
+    "damage": 210,
     "description": "Guerrero furtivo que se mueve entre las sombras e inflige ataques críticos letales.",
     "skills": ["Dagas Venenosas", "Paso de Sombra"],
     "image": "assets/images/shadow_assassin.jpg"
@@ -38,7 +41,8 @@
     "element": "tierra",
     "rarity": "rare",
     "mana": 3,
-    "damage": 1500,
+    "hp": 1400,
+    "damage": 120,
     "description": "Coloso de piedra imbuido con energía telúrica que aplasta la primera línea enemiga.",
     "skills": ["Impacto Telúrico", "Onda Terrestre"],
     "image": "assets/images/golem.jpg"
