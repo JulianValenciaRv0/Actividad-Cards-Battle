@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#14092b"/>
+      <stop offset="60%" stop-color="#090314"/>
+      <stop offset="100%" stop-color="#030108"/>
+    </radialGradient>
+    <radialGradient id="necroGlow" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#15803d" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#14092b" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <circle cx="400" cy="380" r="280" fill="url(#necroGlow)"/>
+  
+  <!-- Magic Aura Orbs -->
+  <circle cx="280" cy="260" r="18" fill="#4ade80" filter="url(#glow)" opacity="0.7"/>
+  <circle cx="520" cy="240" r="12" fill="#4ade80" filter="url(#glow)" opacity="0.6"/>
+  <circle cx="220" cy="450" r="24" fill="#22c55e" filter="url(#glow)" opacity="0.5"/>
+  <circle cx="580" cy="420" r="15" fill="#86efac" filter="url(#glow)" opacity="0.8"/>
+
+  <!-- Hood & Robes -->
+  <path d="M 320 650 L 300 420 L 350 250 L 400 200 L 450 250 L 500 420 L 480 650 Z" fill="#1e1b4b"/>
+  <path d="M 400 200 Q 320 220 340 310 Q 400 280 460 310 Q 480 220 400 200 Z" fill="#0f172a"/>
+  
+  <!-- Face Shadow & Eyes -->
+  <ellipse cx="400" cy="265" rx="40" ry="30" fill="#020617"/>
+  <circle cx="385" cy="265" r="5" fill="#4ade80" filter="url(#glow)"/>
+  <circle cx="415" cy="265" r="5" fill="#4ade80" filter="url(#glow)"/>
+
+  <!-- Staff -->
+  <line x1="530" y1="150" x2="530" y2="700" stroke="#475569" stroke-width="12" stroke-linecap="round"/>
+  <!-- Staff Skull Top -->
+  <path d="M 510 160 Q 530 130 550 160 Q 555 185 530 200 Q 505 185 510 160 Z" fill="#e2e8f0"/>
+  <circle cx="522" cy="165" r="4" fill="#15803d"/>
+  <circle cx="538" cy="165" r="4" fill="#15803d"/>
+  <circle cx="530" cy="140" r="16" fill="#22c55e" filter="url(#glow)" opacity="0.9"/>
+</svg>
