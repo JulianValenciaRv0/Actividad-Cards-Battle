@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mythic Clash - Arena de Batalla (1vs1 & 5vs5)</title>
-  <meta name="description" content="Enfrentamiento de cartas 1 vs 1 con vista general de tablero 5 vs 5 y habilidades místicas.">
+  <meta name="description" content="Enfrentamiento de cartas 1 vs 1 con habilidades místicas y tablero de cartas completo 5 vs 5.">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -34,7 +34,7 @@
     </div>
   </header>
 
-  <!-- PÁGINA DE BATALLA (ARENA REDISEÑADA) -->
+  <!-- PÁGINA DE BATALLA (ARENA CON ENFRENTAMIENTO 1VS1 + HABILIDADES + TABLERO 5VS5 COMPLETO) -->
   <main class="page-view active">
     <div class="arena-view-container">
 
@@ -59,7 +59,7 @@
         </div>
       </div>
 
-      <!-- SECCIÓN 1: ENFRENTAMIENTO DIRECTO 1 VS 1 (Cartas Grandes en Combate) -->
+      <!-- SECCIÓN 1: ENFRENTAMIENTO DIRECTO 1 VS 1 (Cartas Grandes en Batalla) -->
       <section class="clash-stage-1vs1">
         
         <!-- Carta Grande Activa de la IA -->
@@ -138,36 +138,7 @@
 
       </section>
 
-      <!-- SECCIÓN 2: VISTA GENERAL COMPACTA DE TABLERO 5 VS 5 -->
-      <section class="board-overview-5vs5">
-        
-        <!-- Fila de Slots IA (5 Mini Slots) -->
-        <div class="board-team-row ai-row">
-          <span class="board-team-label">🔴 CARTAS IA:</span>
-          <div class="board-mini-slots" id="ai-mini-board">
-            <div class="mini-slot active-card" id="ai-slot-1"><span>❄️</span> Mago</div>
-            <div class="mini-slot" id="ai-slot-2"><span>🤖</span> S2</div>
-            <div class="mini-slot" id="ai-slot-3"><span>🤖</span> S3</div>
-            <div class="mini-slot" id="ai-slot-4"><span>🤖</span> S4</div>
-            <div class="mini-slot" id="ai-slot-5"><span>🤖</span> S5</div>
-          </div>
-        </div>
-
-        <!-- Fila de Slots Jugador (5 Mini Slots) -->
-        <div class="board-team-row player-row">
-          <span class="board-team-label">🔵 TUS CARTAS:</span>
-          <div class="board-mini-slots" id="player-mini-board">
-            <div class="mini-slot active-card" id="player-slot-1"><span>🔥</span> Dragón</div>
-            <div class="mini-slot" id="player-slot-2"><span>🎮</span> S2</div>
-            <div class="mini-slot" id="player-slot-3"><span>🎮</span> S3</div>
-            <div class="mini-slot" id="player-slot-4"><span>🎮</span> S4</div>
-            <div class="mini-slot" id="player-slot-5"><span>🎮</span> S5</div>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- SECCIÓN 3: PANEL DE HABILIDADES DE COMBATE (4 Normales, 1 Ulti, 1 Escudo) -->
+      <!-- SECCIÓN 2: PANEL DE HABILIDADES DE COMBATE (Ubicado justo debajo de las cartas 1vs1) -->
       <section class="skills-control-panel">
         <div class="skills-panel-header">
           <span class="skills-panel-title">⚡ Habilidades de Combate (4 Normales • 1 Especial • 1 Escudo)</span>
@@ -218,6 +189,138 @@
           </button>
 
         </div>
+      </section>
+
+      <!-- SECCIÓN 3: TABLERO 5 VS 5 CON CARTAS COMPLETAS (Muestra la Imagen y Formato de Carta) -->
+      <section class="full-board-section">
+        <div class="full-board-header">
+          <span class="full-board-title">🎴 Tablero de Enfrentamiento (5vs5) • Cartas en Juego</span>
+        </div>
+
+        <!-- Bloque de Cartas del Oponente (IA) -->
+        <div class="team-cards-block">
+          <span class="team-title-tag ai">🔴 CARTAS DEL OPONENTE (IA):</span>
+          <div class="cards-5vs5-grid ai-cards-grid" id="ai-full-board">
+            
+            <!-- Carta IA 1 en juego -->
+            <div class="card-item" data-rarity="rare" id="ai-card-1">
+              <div class="card-header-bar">
+                <span class="card-mana-badge">4</span>
+                <span class="card-name-title">Mago Hielo</span>
+                <span class="card-element-tag">❄️</span>
+              </div>
+              <div class="card-image-wrapper">
+                <img src="../assets/images/frost_mage.jpg" alt="Carta IA 1">
+              </div>
+              <div class="card-body-details" style="padding: 0.4rem;">
+                <div class="card-stats-footer">
+                  <span class="stat-badge hp">❤️ 950</span>
+                  <span class="stat-badge damage">💥 160</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slot IA 2 Placeholder -->
+            <div class="board-card-slot empty" id="ai-card-2">
+              <div class="slot-icon">🤖</div>
+              <div class="slot-number">SLOT IA 2</div>
+            </div>
+
+            <!-- Slot IA 3 Placeholder -->
+            <div class="board-card-slot empty" id="ai-card-3">
+              <div class="slot-icon">🤖</div>
+              <div class="slot-number">SLOT IA 3</div>
+            </div>
+
+            <!-- Slot IA 4 Placeholder -->
+            <div class="board-card-slot empty" id="ai-card-4">
+              <div class="slot-icon">🤖</div>
+              <div class="slot-number">SLOT IA 4</div>
+            </div>
+
+            <!-- Slot IA 5 Placeholder -->
+            <div class="board-card-slot empty" id="ai-card-5">
+              <div class="slot-icon">🤖</div>
+              <div class="slot-number">SLOT IA 5</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Bloque de Cartas del Jugador (Tú) -->
+        <div class="team-cards-block">
+          <span class="team-title-tag player">🔵 TUS CARTAS (JUGADOR):</span>
+          <div class="cards-5vs5-grid player-cards-grid" id="player-full-board">
+            
+            <!-- Carta Jugador 1 en juego -->
+            <div class="card-item" data-rarity="legendary" id="player-card-1">
+              <div class="card-header-bar">
+                <span class="card-mana-badge">5</span>
+                <span class="card-name-title">Dragón Infernal</span>
+                <span class="card-element-tag">🔥</span>
+              </div>
+              <div class="card-image-wrapper">
+                <img src="../assets/images/dragon.jpg" alt="Tu Carta 1">
+              </div>
+              <div class="card-body-details" style="padding: 0.4rem;">
+                <div class="card-stats-footer">
+                  <span class="stat-badge hp">❤️ 1200</span>
+                  <span class="stat-badge damage">💥 220</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Carta Jugador 2 en juego -->
+            <div class="card-item" data-rarity="epic" id="player-card-2">
+              <div class="card-header-bar">
+                <span class="card-mana-badge">3</span>
+                <span class="card-name-title">Asesino</span>
+                <span class="card-element-tag">🔮</span>
+              </div>
+              <div class="card-image-wrapper">
+                <img src="../assets/images/shadow_assassin.jpg" alt="Tu Carta 2">
+              </div>
+              <div class="card-body-details" style="padding: 0.4rem;">
+                <div class="card-stats-footer">
+                  <span class="stat-badge hp">❤️ 800</span>
+                  <span class="stat-badge damage">💥 210</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Carta Jugador 3 en juego -->
+            <div class="card-item" data-rarity="rare" id="player-card-3">
+              <div class="card-header-bar">
+                <span class="card-mana-badge">3</span>
+                <span class="card-name-title">Golem Cristal</span>
+                <span class="card-element-tag">🌿</span>
+              </div>
+              <div class="card-image-wrapper">
+                <img src="../assets/images/golem.jpg" alt="Tu Carta 3">
+              </div>
+              <div class="card-body-details" style="padding: 0.4rem;">
+                <div class="card-stats-footer">
+                  <span class="stat-badge hp">❤️ 1400</span>
+                  <span class="stat-badge damage">💥 120</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slot Jugador 4 Placeholder -->
+            <div class="board-card-slot empty" id="player-card-4">
+              <div class="slot-icon">🎮</div>
+              <div class="slot-number">TU SLOT 4</div>
+            </div>
+
+            <!-- Slot Jugador 5 Placeholder -->
+            <div class="board-card-slot empty" id="player-card-5">
+              <div class="slot-icon">🎮</div>
+              <div class="slot-number">TU SLOT 5</div>
+            </div>
+
+          </div>
+        </div>
+
       </section>
 
       <!-- HUD Inferior: Jugador (General) -->
