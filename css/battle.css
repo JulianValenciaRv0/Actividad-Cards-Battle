@@ -123,6 +123,45 @@
   align-items: center;
   gap: 0.6rem;
   width: 100%;
+  padding: 1rem;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  transition: var(--transition-normal);
+}
+
+/* Contenedor Azul (Tu Carta - Aliado - Izquierda) */
+.active-clash-card.player-side {
+  border-color: var(--neon-cyan);
+  background: linear-gradient(180deg, rgba(0, 243, 255, 0.12) 0%, rgba(7, 9, 19, 0.85) 100%);
+  box-shadow: 0 0 25px rgba(0, 243, 255, 0.3);
+}
+
+/* Contenedor Rojo (Carta IA - Enemigo - Derecha) */
+.active-clash-card.ai-side {
+  border-color: var(--neon-crimson);
+  background: linear-gradient(180deg, rgba(255, 0, 85, 0.12) 0%, rgba(7, 9, 19, 0.85) 100%);
+  box-shadow: 0 0 25px rgba(255, 0, 85, 0.3);
+}
+
+.clash-side-badge {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  letter-spacing: 1px;
+}
+
+.player-side .clash-side-badge {
+  background: rgba(0, 243, 255, 0.15);
+  color: var(--neon-cyan);
+  border: 1px solid var(--neon-cyan);
+}
+
+.ai-side .clash-side-badge {
+  background: rgba(255, 0, 85, 0.15);
+  color: var(--neon-crimson);
+  border: 1px solid var(--neon-crimson);
 }
 
 .card-clash-slot {

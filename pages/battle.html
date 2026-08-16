@@ -62,50 +62,10 @@
       <!-- SECCIÓN 1: ENFRENTAMIENTO DIRECTO 1 VS 1 (Cartas Grandes en Batalla) -->
       <section class="clash-stage-1vs1">
         
-        <!-- Carta Grande Activa de la IA -->
-        <div class="active-clash-card">
-          <div class="card-clash-slot">
-            <div class="card-item" data-rarity="rare" id="ai-active-card">
-              <div class="card-header-bar">
-                <span class="card-mana-badge">4</span>
-                <span class="card-name-title">Mago de Hielo</span>
-                <span class="card-element-tag">❄️</span>
-              </div>
-              <div class="card-image-wrapper">
-                <img src="../assets/images/frost_mage.jpg" alt="Carta IA en combate">
-              </div>
-              <div class="card-body-details" style="padding: 0.4rem;">
-                <div class="card-stats-footer">
-                  <span class="stat-badge hp">❤️ 950</span>
-                  <span class="stat-badge damage">💥 160</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Barra de Vida Individual de la Carta de la IA -->
-          <div class="card-clash-hp">
-            <div class="card-clash-hp-text">
-              <span>VIDA CARTA IA</span>
-              <span id="ai-card-hp-val">950 / 950</span>
-            </div>
-            <div class="card-clash-hp-bar">
-              <div class="card-clash-hp-fill ai" id="ai-card-hp-fill" style="width: 100%;"></div>
-            </div>
-          </div>
-        </div>
+        <!-- Carta Grande Activa del Jugador (IZQUIERDA - Contenedor Azul) -->
+        <div class="active-clash-card player-side">
+          <span class="clash-side-badge">🔵 TU CARTA (ALIADO)</span>
 
-        <!-- Zona Central de Choque VS -->
-        <div class="arena-clash-center">
-          <div class="vs-badge-glow">VS</div>
-          <div class="turn-banner" id="turn-indicator">RONDA 1 • TU TURNO</div>
-          <div class="battle-log-ticker" id="battle-log">
-            ⚔️ ¡Enfrentamiento activo! Selecciona tu habilidad para atacar a la carta de la IA.
-          </div>
-          <button class="btn-end-turn" id="btn-end-turn">FINALIZAR TURNO ⌛</button>
-        </div>
-
-        <!-- Carta Grande Activa del Jugador -->
-        <div class="active-clash-card">
           <div class="card-clash-slot">
             <div class="card-item" data-rarity="legendary" id="player-active-card">
               <div class="card-header-bar">
@@ -132,6 +92,50 @@
             </div>
             <div class="card-clash-hp-bar">
               <div class="card-clash-hp-fill" id="player-card-hp-fill" style="width: 100%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zona Central de Choque VS -->
+        <div class="arena-clash-center">
+          <div class="vs-badge-glow">VS</div>
+          <div class="turn-banner" id="turn-indicator">RONDA 1 • TU TURNO</div>
+          <div class="battle-log-ticker" id="battle-log">
+            ⚔️ ¡Enfrentamiento activo! Selecciona tu habilidad para atacar a la carta de la IA.
+          </div>
+          <button class="btn-end-turn" id="btn-end-turn">FINALIZAR TURNO ⌛</button>
+        </div>
+
+        <!-- Carta Grande Activa de la IA (DERECHA - Contenedor Rojo) -->
+        <div class="active-clash-card ai-side">
+          <span class="clash-side-badge">🔴 CARTA IA (ENEMIGO)</span>
+
+          <div class="card-clash-slot">
+            <div class="card-item" data-rarity="rare" id="ai-active-card">
+              <div class="card-header-bar">
+                <span class="card-mana-badge">4</span>
+                <span class="card-name-title">Mago de Hielo</span>
+                <span class="card-element-tag">❄️</span>
+              </div>
+              <div class="card-image-wrapper">
+                <img src="../assets/images/frost_mage.jpg" alt="Carta IA en combate">
+              </div>
+              <div class="card-body-details" style="padding: 0.4rem;">
+                <div class="card-stats-footer">
+                  <span class="stat-badge hp">❤️ 950</span>
+                  <span class="stat-badge damage">💥 160</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Barra de Vida Individual de la Carta de la IA -->
+          <div class="card-clash-hp">
+            <div class="card-clash-hp-text">
+              <span>VIDA CARTA IA</span>
+              <span id="ai-card-hp-val">950 / 950</span>
+            </div>
+            <div class="card-clash-hp-bar">
+              <div class="card-clash-hp-fill ai" id="ai-card-hp-fill" style="width: 100%;"></div>
             </div>
           </div>
         </div>
