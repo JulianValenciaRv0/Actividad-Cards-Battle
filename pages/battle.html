@@ -363,6 +363,27 @@
     </div>
   </main>
 
-  <script src="../js/app.js"></script>
+  <!-- Modal de Fin de Juego (Victoria / Derrota) -->
+  <div class="game-over-modal-overlay" id="game-over-modal" style="display: none;">
+    <div class="game-over-card">
+      <div class="modal-badge" id="modal-result-badge">🏆 ¡VICTORIA!</div>
+      <h2 id="modal-title">¡Has conquistado la Arena!</h2>
+      <p id="modal-desc">Has derrotado a las 5 cartas de la IA Comandante.</p>
+      
+      <div class="modal-stats-summary">
+        <div class="summary-item">
+          <span>Tus cartas restantes:</span>
+          <strong id="modal-cards-left">0 / 5</strong>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="btn-restart-battle">JUGAR DE NUEVO ⚔️</button>
+        <a href="collection.html" class="btn btn-secondary">VOLVER A COLECCIÓN 🎴</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../js/app.js"></script>
 </body>
 </html>

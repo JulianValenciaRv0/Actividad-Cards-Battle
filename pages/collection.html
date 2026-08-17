@@ -48,6 +48,7 @@
           <div class="deck-stats">
             <div class="stat-item">Mana Prom: <span id="stat-mana">0.0</span></div>
             <div class="stat-item">Daño Total: <span id="stat-damage">0</span></div>
+            <button class="btn btn-primary" id="btn-start-battle" disabled style="opacity: 0.5; cursor: not-allowed;">¡INICIAR BATALLA! ⚔️</button>
           </div>
         </div>
 
@@ -100,150 +101,13 @@
         </div>
       </section>
 
-      <!-- Grilla de la Colección General de Cartas Disponibles -->
+      <!-- Grilla de la Colección General de Cartas Disponibles (Renderizado dinámicamente con JS) -->
       <section class="cards-collection-grid" id="collection-grid">
-        
-        <!-- Carta 1: Dragón Infernal -->
-        <div class="card-item" data-rarity="legendary" data-card-id="1">
-          <div class="card-header-bar">
-            <span class="card-mana-badge">5</span>
-            <span class="card-name-title">Dragón Infernal</span>
-            <span class="card-element-tag">🔥</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../assets/images/dragon.jpg" alt="Dragón Infernal">
-          </div>
-          <div class="card-body-details">
-            <div class="card-type-rarity">
-              <span>Dragón</span>
-              <span style="color: var(--rarity-legendary);">Legendaria</span>
-            </div>
-            
-            <p class="card-description">Señor de los volcanes que abrasa el campo enemigo con un aliento de fuego incandescente.</p>
-
-            <div class="card-skills-container">
-              <span class="card-skills-title">Habilidades:</span>
-              <ul class="card-skills-list">
-                <li class="card-skill-item">Aliento Abrasador</li>
-                <li class="card-skill-item">Furia de Lava</li>
-              </ul>
-            </div>
-
-            <div class="card-stats-footer">
-              <span class="stat-badge hp">❤️ HP: 1200</span>
-              <span class="stat-badge damage">💥 Daño: 220</span>
-            </div>
-            <button class="card-action-btn">+ Agregar al Mazo</button>
-          </div>
-        </div>
-
-        <!-- Carta 2: Mago de Hielo -->
-        <div class="card-item" data-rarity="rare" data-card-id="2">
-          <div class="card-header-bar">
-            <span class="card-mana-badge">4</span>
-            <span class="card-name-title">Mago de Hielo</span>
-            <span class="card-element-tag">❄️</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../assets/images/frost_mage.jpg" alt="Mago de Hielo">
-          </div>
-          <div class="card-body-details">
-            <div class="card-type-rarity">
-              <span>Hechicero</span>
-              <span style="color: var(--rarity-rare);">Rara</span>
-            </div>
-
-            <p class="card-description">Maestro del frío eterno que congela las tropas enemigas y ralentiza sus movimientos.</p>
-
-            <div class="card-skills-container">
-              <span class="card-skills-title">Habilidades:</span>
-              <ul class="card-skills-list">
-                <li class="card-skill-item">Ráfaga Helada</li>
-                <li class="card-skill-item">Prisión de Hielo</li>
-              </ul>
-            </div>
-
-            <div class="card-stats-footer">
-              <span class="stat-badge hp">❤️ HP: 950</span>
-              <span class="stat-badge damage">💥 Daño: 160</span>
-            </div>
-            <button class="card-action-btn">+ Agregar al Mazo</button>
-          </div>
-        </div>
-
-        <!-- Carta 3: Asesino Sombrío -->
-        <div class="card-item" data-rarity="epic" data-card-id="3">
-          <div class="card-header-bar">
-            <span class="card-mana-badge">3</span>
-            <span class="card-name-title">Asesino Sombrío</span>
-            <span class="card-element-tag">🔮</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../assets/images/shadow_assassin.jpg" alt="Asesino Sombrío">
-          </div>
-          <div class="card-body-details">
-            <div class="card-type-rarity">
-              <span>Pícaro</span>
-              <span style="color: var(--rarity-epic);">Épica</span>
-            </div>
-
-            <p class="card-description">Guerrero furtivo que se mueve entre las sombras e inflige ataques críticos letales.</p>
-
-            <div class="card-skills-container">
-              <span class="card-skills-title">Habilidades:</span>
-              <ul class="card-skills-list">
-                <li class="card-skill-item">Dagas Venenosas</li>
-                <li class="card-skill-item">Paso de Sombra</li>
-              </ul>
-            </div>
-
-            <div class="card-stats-footer">
-              <span class="stat-badge hp">❤️ HP: 800</span>
-              <span class="stat-badge damage">💥 Daño: 210</span>
-            </div>
-            <button class="card-action-btn">+ Agregar al Mazo</button>
-          </div>
-        </div>
-
-        <!-- Carta 4: Golem de Cristal -->
-        <div class="card-item" data-rarity="rare" data-card-id="4">
-          <div class="card-header-bar">
-            <span class="card-mana-badge">3</span>
-            <span class="card-name-title">Golem de Cristal</span>
-            <span class="card-element-tag">🌿</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../assets/images/golem.jpg" alt="Golem de Cristal">
-          </div>
-          <div class="card-body-details">
-            <div class="card-type-rarity">
-              <span>Criatura</span>
-              <span style="color: var(--rarity-rare);">Rara</span>
-            </div>
-
-            <p class="card-description">Coloso de piedra imbuido con energía telúrica que aplasta la primera línea enemiga.</p>
-
-            <div class="card-skills-container">
-              <span class="card-skills-title">Habilidades:</span>
-              <ul class="card-skills-list">
-                <li class="card-skill-item">Impacto Telúrico</li>
-                <li class="card-skill-item">Onda Terrestre</li>
-              </ul>
-            </div>
-
-            <div class="card-stats-footer">
-              <span class="stat-badge hp">❤️ HP: 1400</span>
-              <span class="stat-badge damage">💥 Daño: 120</span>
-            </div>
-            <button class="card-action-btn">+ Agregar al Mazo</button>
-          </div>
-        </div>
-
       </section>
 
     </div>
   </main>
 
-  <script src="../js/app.js"></script>
+  <script type="module" src="../js/app.js"></script>
 </body>
 </html>

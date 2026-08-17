@@ -467,3 +467,221 @@
   background: rgba(255, 0, 85, 0.08);
   box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
 }
+
+.active-clash-card {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.card-clash-slot {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.active-clash-card .card-item {
+  overflow: visible !important;
+}
+
+/* ==========================================================================
+   ANIMACIONES & EFECTOS DE BATALLA
+   ========================================================================== */
+
+/* Temblor / Shake de carta al sufrir daño */
+.card-damage-shake {
+  animation: damageShake 0.45s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes damageShake {
+  10%, 90% { transform: translate3d(-2px, 0, 0) rotate(-1deg); }
+  20%, 80% { transform: translate3d(4px, 0, 0) rotate(2deg); }
+  30%, 50%, 70% { transform: translate3d(-6px, -2px, 0) rotate(-3deg); }
+  40%, 60% { transform: translate3d(6px, 2px, 0) rotate(3deg); }
+}
+
+/* Daño Emergente Flotante (Popup Text) */
+.damage-popup {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ff0055;
+  background: rgba(7, 9, 19, 0.85);
+  border: 2px solid #ff0055;
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 0, 85, 0.8), 0 0 40px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+  z-index: 9999;
+  animation: floatUpFade 1.2s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+  white-space: nowrap;
+}
+
+.damage-popup.shield-popup {
+  color: #00f3ff;
+  border-color: #00f3ff;
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.8), 0 0 40px rgba(0, 0, 0, 0.9);
+}
+
+.damage-popup.special-popup {
+  color: #ffb703;
+  border-color: #ffb703;
+  font-size: 2.5rem;
+  box-shadow: 0 0 25px rgba(255, 183, 3, 0.9), 0 0 50px rgba(0, 0, 0, 0.9);
+}
+
+@keyframes floatUpFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -30px) scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -85px) scale(1);
+  }
+}
+    transform: translate(-50%, -75px) scale(1);
+  }
+}
+
+/* Indicadores de cartas en tablero 5vs5 */
+.card-item.board-card-active {
+  border-color: var(--neon-cyan) !important;
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.6) !important;
+}
+
+.card-item.board-card-defeated {
+  filter: grayscale(100%) brightness(0.4);
+  opacity: 0.5;
+  position: relative;
+}
+
+.card-item.board-card-defeated::after {
+  content: "💀 DERROTADA";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 0, 85, 0.85);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Modal de Fin de Juego */
+.game-over-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(7, 9, 19, 0.85);
+  backdrop-filter: blur(16px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.game-over-card {
+  background: rgba(15, 19, 37, 0.95);
+  border: 2px solid var(--neon-gold);
+  box-shadow: 0 0 50px rgba(255, 183, 3, 0.3), inset 0 0 30px rgba(255, 183, 3, 0.05);
+  border-radius: 24px;
+  padding: 2.5rem 3rem;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  animation: modalScaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.game-over-card.defeat {
+  border-color: var(--neon-crimson);
+  box-shadow: 0 0 50px rgba(255, 0, 85, 0.3), inset 0 0 30px rgba(255, 0, 85, 0.05);
+}
+
+.modal-badge {
+  background: var(--neon-gold);
+  color: #000;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 1rem;
+}
+
+.defeat .modal-badge {
+  background: var(--neon-crimson);
+  color: #fff;
+}
+
+.game-over-card h2 {
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.game-over-card p {
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+.modal-stats-summary {
+  width: 100%;
+  background: rgba(7, 9, 19, 0.6);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-stats);
+  font-size: 1.1rem;
+}
+
+.summary-item strong {
+  color: var(--neon-cyan);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.modal-actions .btn {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalScaleUp {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
