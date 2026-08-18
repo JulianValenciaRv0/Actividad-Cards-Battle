@@ -8,9 +8,11 @@ import {
   agregarLogBatalla,
   renderizarFinDeJuego,
   obtenerNombreJugador,
+  obtenerIconoJugador,
   guardarNombreJugador,
   mostrarModalNombreJugador,
-  renderizarRankingPage
+  renderizarRankingPage,
+  AVATARES_DISPONIBLES
 } from './render.js';
 
 let filtroTexto = '';
@@ -256,11 +258,7 @@ export function conectarEventosGlobales() {
   const userPill = document.getElementById('header-user-pill');
   if (userPill) {
     userPill.addEventListener('click', () => {
-      const actual = obtenerNombreJugador();
-      const nuevoNombre = prompt('Ingresa tu nuevo nombre de jugador:', actual);
-      if (nuevoNombre && nuevoNombre.trim()) {
-        guardarNombreJugador(nuevoNombre);
-      }
+      mostrarModalNombreJugador();
     });
   }
 }
@@ -271,6 +269,23 @@ export function conectarEventosGlobales() {
 export function conectarEventosPerfil() {
   const form = document.getElementById('profile-name-form');
   const input = document.getElementById('profile-username-input');
+  const avatarGrid = document.getElementById('profile-avatar-grid');
+  let selectedIcon = obtenerIconoJugador();
+
+  if (avatarGrid) {
+    avatarGrid.innerHTML = AVATARES_DISPONIBLES.map(icon => `
+      <button type="button" class="avatar-option-btn ${icon === selectedIcon ? 'selected' : ''}" data-icon="${icon}">${icon}</button>
+    `).join('');
+
+    avatarGrid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.avatar-option-btn');
+      if (!btn) return;
+
+      avatarGrid.querySelectorAll('.avatar-option-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedIcon = btn.dataset.icon;
+    });
+  }
 
   if (form && input) {
     input.value = obtenerNombreJugador();
@@ -278,8 +293,8 @@ export function conectarEventosPerfil() {
       e.preventDefault();
       const val = input.value.trim();
       if (val) {
-        guardarNombreJugador(val);
-        alert('¡Nombre guardado exitosamente! 🚀');
+        guardarNombreJugador(val, selectedIcon);
+        alert('¡Perfil guardado exitosamente! 🚀');
       }
     });
   }

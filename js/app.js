@@ -33,11 +33,8 @@ async function iniciarApp() {
     actualizarPildorasNombreUsuario();
     conectarEventosGlobales();
 
-    // Solicitar nombre al jugador si es su primera vez o no tiene nombre guardado
-    const nombreGuardado = localStorage.getItem('mythicClash_playerName');
-    if (!nombreGuardado) {
-      mostrarModalNombreJugador();
-    }
+    // Solicitar nombre e icono al jugador cada vez que inicie o abra la página
+    mostrarModalNombreJugador();
 
     const pagePath = window.location.pathname;
 

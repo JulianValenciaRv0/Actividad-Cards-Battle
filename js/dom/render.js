@@ -565,59 +565,88 @@ export function renderizarFinDeJuego() {
   modal.style.display = 'flex';
 }
 
+export const AVATARES_DISPONIBLES = ['⚔️', '🧙‍♂️', '🦁', '🐲', '🛡️', '⚡', '👑', '🔮', '💀', '🔥', '🌊', '🤖'];
+
 /**
- * Player Name Management Helpers
+ * Player Name & Icon Management Helpers
  */
 export function obtenerNombreJugador() {
   const saved = localStorage.getItem('mythicClash_playerName');
   return (saved && saved.trim()) ? saved.trim() : 'Jugador';
 }
 
-export function guardarNombreJugador(nombre) {
-  if (!nombre || !nombre.trim()) return;
-  const limpio = nombre.trim();
-  localStorage.setItem('mythicClash_playerName', limpio);
+export function obtenerIconoJugador() {
+  const saved = localStorage.getItem('mythicClash_playerIcon');
+  return (saved && saved.trim()) ? saved.trim() : '⚔️';
+}
+
+export function guardarNombreJugador(nombre, icono) {
+  if (nombre && nombre.trim()) {
+    localStorage.setItem('mythicClash_playerName', nombre.trim());
+  }
+  if (icono && icono.trim()) {
+    localStorage.setItem('mythicClash_playerIcon', icono.trim());
+  }
   actualizarPildorasNombreUsuario();
 }
 
 export function actualizarPildorasNombreUsuario() {
   const nombre = obtenerNombreJugador();
-  const inicial = nombre.charAt(0).toUpperCase();
+  const icono = obtenerIconoJugador();
 
   const nameEl = document.getElementById('header-user-name');
   const avatarEl = document.getElementById('header-user-avatar');
   if (nameEl) nameEl.textContent = nombre;
-  if (avatarEl) avatarEl.textContent = inicial;
+  if (avatarEl) avatarEl.textContent = icono;
 
   const battleNameEl = document.getElementById('battle-player-name');
-  if (battleNameEl) battleNameEl.textContent = `${nombre} (Tú)`;
+  if (battleNameEl) battleNameEl.textContent = `${icono} ${nombre} (Tú)`;
+
+  const battleAvatarEl = document.getElementById('battle-player-avatar');
+  if (battleAvatarEl) battleAvatarEl.textContent = icono;
 
   const profileInput = document.getElementById('profile-username-input');
   if (profileInput) profileInput.value = nombre;
 }
 
 /**
- * Player Prompt Modal (when visiting site without a saved name)
+ * Player Prompt Modal (asks for name and avatar icon)
  */
 export function mostrarModalNombreJugador(onComplete) {
   if (document.getElementById('player-name-modal-overlay')) return;
+
+  const actualNombre = obtenerNombreJugador();
+  const actualIcono = obtenerIconoJugador();
+  let iconoSeleccionado = actualIcono;
 
   const overlay = document.createElement('div');
   overlay.className = 'player-modal-overlay';
   overlay.id = 'player-name-modal-overlay';
 
+  const avatarButtonsHtml = AVATARES_DISPONIBLES.map(icon => `
+    <button type="button" class="avatar-option-btn ${icon === actualIcono ? 'selected' : ''}" data-icon="${icon}">${icon}</button>
+  `).join('');
+
   overlay.innerHTML = `
     <div class="player-modal-card">
-      <div class="player-modal-icon">⚔️</div>
+      <div class="player-modal-icon" id="modal-preview-icon">${actualIcono}</div>
       <h2 class="player-modal-title">¡Bienvenido a Mythic Clash!</h2>
-      <p class="player-modal-desc">Ingresa tu nombre de Invocador para comenzar a batallar y guardar tus victorias en el Ranking.</p>
+      <p class="player-modal-desc">Ingresa tu nombre y selecciona tu icono de Invocador para comenzar a batallar.</p>
       
       <form id="player-modal-form">
         <div class="player-modal-input-group">
-          <label for="player-modal-name-input">Nombre de Jugador</label>
-          <input type="text" id="player-modal-name-input" class="player-modal-input" placeholder="Ej: InvocadorX" required minlength="2" maxlength="20">
+          <label for="player-modal-name-input">Nombre de Invocador</label>
+          <input type="text" id="player-modal-name-input" class="player-modal-input" placeholder="Ej: InvocadorX" value="${actualNombre !== 'Jugador' ? actualNombre : ''}" required minlength="2" maxlength="20">
         </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">¡ENTRAR A LA ARENA! 🚀</button>
+
+        <div class="player-modal-input-group">
+          <label>Elige tu Ícono / Avatar</label>
+          <div class="avatar-selector-grid" id="modal-avatar-grid">
+            ${avatarButtonsHtml}
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 0.5rem;">¡GUARDAR Y ENTRAR! 🚀</button>
       </form>
     </div>
   `;
@@ -626,15 +655,28 @@ export function mostrarModalNombreJugador(onComplete) {
 
   const form = overlay.querySelector('#player-modal-form');
   const input = overlay.querySelector('#player-modal-name-input');
+  const previewIcon = overlay.querySelector('#modal-preview-icon');
+  const avatarGrid = overlay.querySelector('#modal-avatar-grid');
+
   if (input) setTimeout(() => input.focus(), 100);
+
+  avatarGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.avatar-option-btn');
+    if (!btn) return;
+
+    avatarGrid.querySelectorAll('.avatar-option-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    iconoSeleccionado = btn.dataset.icon;
+    if (previewIcon) previewIcon.textContent = iconoSeleccionado;
+  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const val = input.value.trim();
     if (val) {
-      guardarNombreJugador(val);
+      guardarNombreJugador(val, iconoSeleccionado);
       document.body.removeChild(overlay);
-      if (typeof onComplete === 'function') onComplete(val);
+      if (typeof onComplete === 'function') onComplete(val, iconoSeleccionado);
     }
   });
 }
@@ -693,6 +735,7 @@ export function guardarResultadoBatalla() {
     date: dateStr,
     winner: gameState.ganador,
     playerName: obtenerNombreJugador(),
+    playerIcon: obtenerIconoJugador(),
     rivalName: 'Comandante IA',
     esGanador: esGanador,
     cardsLeftPlayer: vivasJugador,
@@ -774,8 +817,9 @@ export function renderizarRankingPage(filtro = 'all') {
       `).join('');
     };
 
+    const pIcon = match.playerIcon || '⚔️';
     const ganadorBadge = match.esGanador
-      ? `🏆 Victoria de ${match.playerName}`
+      ? `🏆 Victoria de ${pIcon} ${match.playerName}`
       : `💀 Victoria de ${match.rivalName}`;
 
     cardEl.innerHTML = `
@@ -796,7 +840,7 @@ export function renderizarRankingPage(filtro = 'all') {
           <!-- Player Deck Side -->
           <div class="deck-team-side player">
             <div class="deck-team-header">
-              <span>🎮 ${match.playerName} (Tú)</span>
+              <span>${pIcon} ${match.playerName} (Tú)</span>
             </div>
             <div class="mini-cards-row">
               ${renderMiniDeck(match.playerDeck)}
