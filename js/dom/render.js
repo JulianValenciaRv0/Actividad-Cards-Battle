@@ -587,6 +587,7 @@ export function guardarNombreJugador(nombre, icono) {
   if (icono && icono.trim()) {
     localStorage.setItem('mythicClash_playerIcon', icono.trim());
   }
+  sessionStorage.setItem('mythicClash_sessionActive', 'true');
   actualizarPildorasNombreUsuario();
 }
 
