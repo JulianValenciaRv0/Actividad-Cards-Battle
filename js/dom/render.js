@@ -1,9 +1,6 @@
 // js/dom/render.js
 import { gameState, obtenerCartaActiva, obtenerHpTotal, obtenerCartasVivasCount } from '../logic/game.js';
 
-/**
- * Adjusts image path based on current page URL depth
- */
 export function fixImagePath(path) {
   if (!path) return '../assets/images/dragon.jpg';
   const isPagesFolder = window.location.pathname.includes('/pages/');
@@ -16,9 +13,6 @@ export function fixImagePath(path) {
   return path;
 }
 
-/**
- * Returns element emoji tag
- */
 export function getElementTag(element) {
   switch (element ? element.toLowerCase() : '') {
     case 'fuego': case 'fire': return '🔥';
@@ -30,9 +24,6 @@ export function getElementTag(element) {
   }
 }
 
-/**
- * Returns color style for card rarity
- */
 export function getRarityColor(rarity) {
   switch (rarity ? rarity.toLowerCase() : '') {
     case 'legendary': case 'legendaria': return 'var(--rarity-legendary)';
@@ -42,13 +33,6 @@ export function getRarityColor(rarity) {
   }
 }
 
-/* ==========================================================================
-   RENDER: PÁGINA DE COLECCIÓN & CONSTRUCTOR DE MAZO
-   ========================================================================== */
-
-/**
- * Renders the 20 available cards in the collection grid with search & filter applied
- */
 export function renderColeccion(cartas, selectedIds, filtroNombre = '', filtroElemento = 'all') {
   const container = document.getElementById('collection-grid');
   if (!container) return;
@@ -121,9 +105,6 @@ export function renderColeccion(cartas, selectedIds, filtroNombre = '', filtroEl
   renderMazoSeleccionado(cartas, selectedIds);
 }
 
-/**
- * Updates the 5 Deck Builder slots at the top of the collection view
- */
 export function renderMazoSeleccionado(todasLasCartas, selectedIds) {
   const counterEl = document.getElementById('deck-counter');
   const manaEl = document.getElementById('stat-mana');
@@ -146,7 +127,6 @@ export function renderMazoSeleccionado(todasLasCartas, selectedIds) {
     manaEl.textContent = hpProm;
   }
 
-  // Update Start Battle button state
   if (btnStart) {
     if (selectedIds.length === 5) {
       btnStart.removeAttribute('disabled');
@@ -197,13 +177,7 @@ export function renderMazoSeleccionado(todasLasCartas, selectedIds) {
   }
 }
 
-/* ==========================================================================
-   RENDER: PÁGINA DE ARENA DE BATALLA (1vs1, HABILIDADES, TABLERO 5vs5)
-   ========================================================================== */
 
-/**
- * Renders full battle arena components
- */
 export function renderizarBatallaCompleta() {
   actualizarHUDGlobal();
   renderizarCartaActiva1vs1('jugador');

@@ -1,4 +1,3 @@
-// js/logic/game.js
 
 export const gameState = {
   todasLasCartas: [],
@@ -6,16 +5,13 @@ export const gameState = {
   mazoRival: [],
   indexCartaActivaJugador: 0,
   indexCartaActivaRival: 0,
-  turno: 'jugador', // 'jugador' | 'rival'
+  turno: 'jugador', 
   ronda: 1,
   juegoTerminado: false,
   ganador: null,
-  selectedDeckIds: [] // Array of selected card IDs in collection view
+  selectedDeckIds: [] 
 };
 
-/**
- * Normalizes card data cloned for battle
- */
 function clonarCarta(cartaOriginal) {
   return {
     ...cartaOriginal,
@@ -27,9 +23,6 @@ function clonarCarta(cartaOriginal) {
   };
 }
 
-/**
- * Initializes the battle state with selected player deck and random CPU deck
- */
 export function inicializarJuego(cartasJugador, cartasRival) {
   gameState.mazoJugador = cartasJugador.map(clonarCarta);
   gameState.mazoRival = cartasRival.map(clonarCarta);
@@ -41,16 +34,11 @@ export function inicializarJuego(cartasJugador, cartasRival) {
   gameState.ganador = null;
 }
 
-/**
- * Obtains the active non-defeated card for a given side
- */
 export function obtenerCartaActiva(bando) {
   const mazo = bando === 'jugador' ? gameState.mazoJugador : gameState.mazoRival;
   let index = bando === 'jugador' ? gameState.indexCartaActivaJugador : gameState.indexCartaActivaRival;
   
   if (!mazo || mazo.length === 0) return null;
-
-  // Search for the first non-defeated card starting from index
   while (index < mazo.length && mazo[index].hpActual <= 0) {
     index++;
   }
@@ -64,17 +52,11 @@ export function obtenerCartaActiva(bando) {
   return mazo[index] || null;
 }
 
-/**
- * Calculates remaining alive cards count for player or rival
- */
 export function obtenerCartasVivasCount(bando) {
   const mazo = bando === 'jugador' ? gameState.mazoJugador : gameState.mazoRival;
   return mazo.filter(c => c.hpActual > 0).length;
 }
 
-/**
- * Calculates total combined HP for a side
- */
 export function obtenerHpTotal(bando) {
   const mazo = bando === 'jugador' ? gameState.mazoJugador : gameState.mazoRival;
   const hpActual = mazo.reduce((sum, c) => sum + c.hpActual, 0);
@@ -82,9 +64,6 @@ export function obtenerHpTotal(bando) {
   return { hpActual, hpMax };
 }
 
-/**
- * Executes a skill casted by the current active turn card
- */
 export function ejecutarHabilidad(habilidad) {
   if (gameState.juegoTerminado) return null;
 
@@ -143,13 +122,11 @@ export function ejecutarHabilidad(habilidad) {
       }
     }
 
-    // Process defeated state if defender HP is 0
     if (cartaDefensora.hpActual === 0) {
       procesarCartaDerrotada(defensor);
     }
   }
 
-  // Switch turn if game is not finished
   if (!gameState.juegoTerminado) {
     gameState.turno = defensor;
     if (defensor === 'jugador') {
@@ -160,9 +137,6 @@ export function ejecutarHabilidad(habilidad) {
   return resultado;
 }
 
-/**
- * Handles logic when a card is defeated
- */
 function procesarCartaDerrotada(bandoDefensor) {
   if (bandoDefensor === 'jugador') {
     let nextIndex = gameState.indexCartaActivaJugador + 1;

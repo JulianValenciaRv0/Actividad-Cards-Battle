@@ -3,9 +3,6 @@ import { gameState, inicializarJuego } from './logic/game.js';
 import { renderColeccion, renderizarBatallaCompleta, renderizarBatallaVacia } from './dom/render.js';
 import { conectarEventosColeccion, conectarEventosBatalla } from './dom/events.js';
 
-/**
- * Main application initializer
- */
 async function iniciarApp() {
   try {
     const isPagesFolder = window.location.pathname.includes('/pages/');
@@ -34,9 +31,6 @@ async function iniciarApp() {
   }
 }
 
-/**
- * Page setup: Collection & Deck Builder
- */
 function inicializarPaginaColeccion(todasLasCartas) {
   let savedDeck = [];
   try {
@@ -54,9 +48,6 @@ function inicializarPaginaColeccion(todasLasCartas) {
   conectarEventosColeccion(todasLasCartas);
 }
 
-/**
- * Page setup: Battle Arena
- */
 function inicializarPaginaBatalla(todasLasCartas) {
   let playerCardIds = [];
   try {
@@ -82,7 +73,6 @@ function inicializarPaginaBatalla(todasLasCartas) {
     return;
   }
 
-  // Random CPU team assignment: 5 random cards from pool
   const poolCPU = [...todasLasCartas].sort(() => Math.random() - 0.5);
   const mazoRival = poolCPU.slice(0, 5);
 
@@ -91,11 +81,8 @@ function inicializarPaginaBatalla(todasLasCartas) {
   conectarEventosBatalla(todasLasCartas);
 }
 
-/**
- * Home page setup
- */
+
 function inicializarHome() {
-  // Home page setup if needed
 }
 
 document.addEventListener('DOMContentLoaded', iniciarApp);
