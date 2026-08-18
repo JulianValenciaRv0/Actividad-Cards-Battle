@@ -533,6 +533,8 @@ export function dispararDanoEmergente(bando, texto, tipo = 'normal') {
 export function renderizarFinDeJuego() {
   if (!gameState.juegoTerminado) return;
 
+  guardarResultadoBatalla();
+
   const modal = document.getElementById('game-over-modal');
   if (!modal) return;
 
@@ -561,4 +563,264 @@ export function renderizarFinDeJuego() {
   if (cardsLeft) cardsLeft.textContent = `${vivas} / 5 Cartas Con Vida`;
 
   modal.style.display = 'flex';
+}
+
+/**
+ * Player Name Management Helpers
+ */
+export function obtenerNombreJugador() {
+  const saved = localStorage.getItem('mythicClash_playerName');
+  return (saved && saved.trim()) ? saved.trim() : 'Jugador';
+}
+
+export function guardarNombreJugador(nombre) {
+  if (!nombre || !nombre.trim()) return;
+  const limpio = nombre.trim();
+  localStorage.setItem('mythicClash_playerName', limpio);
+  actualizarPildorasNombreUsuario();
+}
+
+export function actualizarPildorasNombreUsuario() {
+  const nombre = obtenerNombreJugador();
+  const inicial = nombre.charAt(0).toUpperCase();
+
+  const nameEl = document.getElementById('header-user-name');
+  const avatarEl = document.getElementById('header-user-avatar');
+  if (nameEl) nameEl.textContent = nombre;
+  if (avatarEl) avatarEl.textContent = inicial;
+
+  const battleNameEl = document.getElementById('battle-player-name');
+  if (battleNameEl) battleNameEl.textContent = `${nombre} (Tú)`;
+
+  const profileInput = document.getElementById('profile-username-input');
+  if (profileInput) profileInput.value = nombre;
+}
+
+/**
+ * Player Prompt Modal (when visiting site without a saved name)
+ */
+export function mostrarModalNombreJugador(onComplete) {
+  if (document.getElementById('player-name-modal-overlay')) return;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'player-modal-overlay';
+  overlay.id = 'player-name-modal-overlay';
+
+  overlay.innerHTML = `
+    <div class="player-modal-card">
+      <div class="player-modal-icon">⚔️</div>
+      <h2 class="player-modal-title">¡Bienvenido a Mythic Clash!</h2>
+      <p class="player-modal-desc">Ingresa tu nombre de Invocador para comenzar a batallar y guardar tus victorias en el Ranking.</p>
+      
+      <form id="player-modal-form">
+        <div class="player-modal-input-group">
+          <label for="player-modal-name-input">Nombre de Jugador</label>
+          <input type="text" id="player-modal-name-input" class="player-modal-input" placeholder="Ej: InvocadorX" required minlength="2" maxlength="20">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">¡ENTRAR A LA ARENA! 🚀</button>
+      </form>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+
+  const form = overlay.querySelector('#player-modal-form');
+  const input = overlay.querySelector('#player-modal-name-input');
+  if (input) setTimeout(() => input.focus(), 100);
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const val = input.value.trim();
+    if (val) {
+      guardarNombreJugador(val);
+      document.body.removeChild(overlay);
+      if (typeof onComplete === 'function') onComplete(val);
+    }
+  });
+}
+
+/**
+ * Saves completed match outcome to localStorage ranking history
+ */
+let ultimoDueloGuardadoId = null;
+
+export function guardarResultadoBatalla() {
+  if (!gameState.juegoTerminado) return;
+
+  // Prevent double saving the exact same match run
+  if (gameState.idPartidaActual && ultimoDueloGuardadoId === gameState.idPartidaActual) {
+    return;
+  }
+  gameState.idPartidaActual = Date.now();
+  ultimoDueloGuardadoId = gameState.idPartidaActual;
+
+  let rankingHistory = [];
+  try {
+    const saved = localStorage.getItem('mythicClash_ranking');
+    if (saved) rankingHistory = JSON.parse(saved);
+  } catch (e) {}
+
+  if (!Array.isArray(rankingHistory)) rankingHistory = [];
+
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' }) + ' ' +
+                  now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+
+  const esGanador = gameState.ganador === 'jugador';
+  const vivasJugador = obtenerCartasVivasCount('jugador');
+  const vivasRival = obtenerCartasVivasCount('rival');
+
+  const mazoJugadorSnap = (gameState.mazoJugador || []).map(c => ({
+    name: c.name,
+    image: c.image,
+    element: c.element,
+    rarity: c.rarity,
+    hpMax: c.hpMax,
+    damage: c.damage
+  }));
+
+  const mazoRivalSnap = (gameState.mazoRival || []).map(c => ({
+    name: c.name,
+    image: c.image,
+    element: c.element,
+    rarity: c.rarity,
+    hpMax: c.hpMax,
+    damage: c.damage
+  }));
+
+  const matchRecord = {
+    id: gameState.idPartidaActual,
+    date: dateStr,
+    winner: gameState.ganador,
+    playerName: obtenerNombreJugador(),
+    rivalName: 'Comandante IA',
+    esGanador: esGanador,
+    cardsLeftPlayer: vivasJugador,
+    cardsLeftRival: vivasRival,
+    rondas: gameState.ronda,
+    playerDeck: mazoJugadorSnap,
+    rivalDeck: mazoRivalSnap
+  };
+
+  rankingHistory.unshift(matchRecord);
+  if (rankingHistory.length > 50) rankingHistory = rankingHistory.slice(0, 50);
+
+  localStorage.setItem('mythicClash_ranking', JSON.stringify(rankingHistory));
+}
+
+/**
+ * Renders the LoL-style ranking/history page
+ */
+export function renderizarRankingPage(filtro = 'all') {
+  const container = document.getElementById('ranking-cards-container');
+  const totalMatchesEl = document.getElementById('stat-total-matches');
+  const winsCountEl = document.getElementById('stat-wins-count');
+  const lossesCountEl = document.getElementById('stat-losses-count');
+  const winrateEl = document.getElementById('stat-winrate');
+
+  let rankingHistory = [];
+  try {
+    const saved = localStorage.getItem('mythicClash_ranking');
+    if (saved) rankingHistory = JSON.parse(saved);
+  } catch (e) {}
+
+  if (!Array.isArray(rankingHistory)) rankingHistory = [];
+
+  const total = rankingHistory.length;
+  const wins = rankingHistory.filter(m => m.esGanador).length;
+  const losses = total - wins;
+  const wr = total > 0 ? ((wins / total) * 100).toFixed(0) : 0;
+
+  if (totalMatchesEl) totalMatchesEl.textContent = total;
+  if (winsCountEl) winsCountEl.textContent = wins;
+  if (lossesCountEl) lossesCountEl.textContent = losses;
+  if (winrateEl) winrateEl.textContent = `${wr}%`;
+
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  let partidasFiltradas = rankingHistory;
+  if (filtro === 'wins') {
+    partidasFiltradas = rankingHistory.filter(m => m.esGanador);
+  } else if (filtro === 'losses') {
+    partidasFiltradas = rankingHistory.filter(m => !m.esGanador);
+  }
+
+  if (partidasFiltradas.length === 0) {
+    container.innerHTML = `
+      <div class="empty-ranking-state">
+        <div class="empty-ranking-icon">📜</div>
+        <h3>No hay partidas registradas</h3>
+        <p style="margin-top: 0.5rem;">${filtro !== 'all' ? 'No se encontraron partidas con este filtro.' : '¡Juega en la Arena de Batalla contra la IA para ver tus estadísticas e historial de mazos aquí!'}</p>
+        <a href="battle.html" class="btn btn-primary" style="margin-top: 1.5rem; display: inline-flex;">⚔️ Ir a la Arena de Batalla</a>
+      </div>
+    `;
+    return;
+  }
+
+  partidasFiltradas.forEach(match => {
+    const cardEl = document.createElement('div');
+    cardEl.className = `match-history-card ${match.esGanador ? 'victory' : 'defeat'}`;
+
+    const renderMiniDeck = (deck) => {
+      if (!Array.isArray(deck) || deck.length === 0) return '';
+      return deck.map(c => `
+        <div class="mini-card-thumb" data-rarity="${c.rarity || 'common'}" title="${c.name} (${c.element || 'Místico'}) - ❤️ ${c.hpMax || 1000} | 💥 ${c.damage || 150}">
+          <img src="${fixImagePath(c.image)}" alt="${c.name}" class="mini-card-img" loading="lazy">
+          <span class="mini-card-tag">${getElementTag(c.element)}</span>
+          <span class="mini-card-name-overlay">${c.name}</span>
+        </div>
+      `).join('');
+    };
+
+    const ganadorBadge = match.esGanador
+      ? `🏆 Victoria de ${match.playerName}`
+      : `💀 Victoria de ${match.rivalName}`;
+
+    cardEl.innerHTML = `
+      <div class="match-outcome-stripe"></div>
+      <div class="match-card-content">
+        <div class="match-card-header">
+          <div class="match-result-badge">
+            ${ganadorBadge}
+          </div>
+          <div class="match-meta-info">
+            <span>📅 ${match.date}</span>
+            <span>⏳ ${match.rondas || 1} Rondas</span>
+            <span>❤️ Restantes: ${match.esGanador ? match.cardsLeftPlayer : match.cardsLeftRival}/5</span>
+          </div>
+        </div>
+
+        <div class="match-decks-clash">
+          <!-- Player Deck Side -->
+          <div class="deck-team-side player">
+            <div class="deck-team-header">
+              <span>🎮 ${match.playerName} (Tú)</span>
+            </div>
+            <div class="mini-cards-row">
+              ${renderMiniDeck(match.playerDeck)}
+            </div>
+          </div>
+
+          <!-- Central VS Badge -->
+          <div class="match-vs-divider">
+            <div class="vs-icon-badge">VS</div>
+          </div>
+
+          <!-- Rival Deck Side -->
+          <div class="deck-team-side rival">
+            <div class="deck-team-header">
+              <span>🤖 ${match.rivalName}</span>
+            </div>
+            <div class="mini-cards-row">
+              ${renderMiniDeck(match.rivalDeck)}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    container.appendChild(cardEl);
+  });
 }

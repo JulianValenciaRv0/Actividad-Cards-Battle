@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mythic Clash - Iniciar Sesión</title>
-  <meta name="description" content="Accede a tu cuenta de Mythic Clash para guardar tus cartas y progreso.">
+  <title>Mythic Clash - Perfil de Jugador</title>
+  <meta name="description" content="Configura tu perfil e identifícate como Invocador en Mythic Clash.">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -21,54 +21,53 @@
         <li><a href="../index.html" class="nav-link">🏠 Inicio</a></li>
         <li><a href="collection.html" class="nav-link">🎴 Colección & Mazo</a></li>
         <li><a href="battle.html" class="nav-link">⚔️ Arena de Batalla</a></li>
-        <li><a href="login.html" class="nav-link active">🔐 Iniciar Sesión</a></li>
+        <li><a href="ranking.html" class="nav-link">🏆 Ranking</a></li>
+        <li><a href="login.html" class="nav-link active">🔐 Perfil</a></li>
       </ul>
     </nav>
 
-    <div class="user-status-pill">
-      <div class="user-avatar">J</div>
+    <div class="user-status-pill" id="header-user-pill" title="Haz clic para cambiar tu nombre de jugador">
+      <div class="user-avatar" id="header-user-avatar">J</div>
       <div class="user-info">
-        <span class="user-name">Invitado</span>
-        <span class="user-rank">Sin Sesión</span>
+        <span class="user-name" id="header-user-name">Jugador</span>
+        <span class="user-rank">Invocador Místico</span>
       </div>
     </div>
   </header>
 
-  <!-- PÁGINA DE INICIO DE SESIÓN / REGISTRO -->
+  <!-- PÁGINA DE PERFIL / NOMBRE DE JUGADOR -->
   <main class="page-view active">
     <div class="auth-page-container">
       <div class="auth-card-glass">
         
-        <div class="auth-tabs">
-          <button class="auth-tab-btn active" id="tab-login">Iniciar Sesión</button>
-          <button class="auth-tab-btn" id="tab-register">Registrarse</button>
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">👤</div>
+          <h2 style="font-size: 1.5rem; color: #fff;">Perfil del Jugador</h2>
+          <p style="font-size: 0.85rem; color: #94a3b8;">Establece tu nombre para que aparezca en el ranking y tus victorias contra la máquina.</p>
         </div>
 
-        <form class="auth-form" onsubmit="event.preventDefault();">
+        <form class="auth-form" id="profile-name-form">
           <div class="form-group">
-            <label for="auth-email">Correo Electrónico o Usuario</label>
-            <input type="text" id="auth-email" class="form-input" placeholder="ejemplo@mythicclash.com" required>
+            <label for="profile-username-input">Nombre de Invocador / Jugador</label>
+            <input type="text" id="profile-username-input" class="form-input" placeholder="Ingresa tu nombre..." required minlength="2" maxlength="20">
           </div>
 
-          <div class="form-group">
-            <label for="auth-password">Contraseña</label>
-            <input type="password" id="auth-password" class="form-input" placeholder="••••••••" required>
+          <div style="margin: 1rem 0; padding: 0.8rem; background: rgba(0, 243, 255, 0.05); border: 1px solid rgba(0, 243, 255, 0.2); border-radius: 10px; font-size: 0.8rem; color: #94a3b8; display: flex; align-items: center; gap: 0.5rem;">
+            <span>ℹ️</span>
+            <span>Tu nombre se guardará en este navegador y se usará para registrar tus partidas en el Ranking.</span>
           </div>
 
-          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #94a3b8;">
-            <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer;">
-              <input type="checkbox"> Recordarme
-            </label>
-            <a href="#" style="color: var(--neon-cyan); text-decoration: none;">¿Olvidaste tu contraseña?</a>
-          </div>
-
-          <button type="submit" class="auth-submit-btn">ENTRAR A LA ARENA 🚀</button>
+          <button type="submit" class="auth-submit-btn">GUARDAR NOMBRE 🚀</button>
         </form>
+
+        <div style="margin-top: 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1rem;">
+          <a href="ranking.html" style="color: var(--neon-gold); font-family: var(--font-heading); font-size: 0.85rem; text-decoration: none;">🏆 Ver Mi Ranking e Historial de Batallas →</a>
+        </div>
 
       </div>
     </div>
   </main>
 
-  <script src="../js/app.js"></script>
+  <script type="module" src="../js/app.js"></script>
 </body>
 </html>

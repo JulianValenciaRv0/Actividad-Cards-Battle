@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mythic Clash - Ranking & Historial de Partidas</title>
+  <meta name="description" content="Consulta la tabla de clasificación, historial de enfrentamientos contra la IA y mazos utilizados estilo League of Legends.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- HEADER & NAVEGACIÓN PRINCIPAL -->
+  <header class="main-header">
+    <a href="../index.html" class="brand-logo">
+      <div class="brand-icon">⚔️</div>
+      <span class="brand-name">MYTHIC CLASH</span>
+    </a>
+
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="../index.html" class="nav-link">🏠 Inicio</a></li>
+        <li><a href="collection.html" class="nav-link">🎴 Colección & Mazo</a></li>
+        <li><a href="battle.html" class="nav-link">⚔️ Arena de Batalla</a></li>
+        <li><a href="ranking.html" class="nav-link active">🏆 Ranking</a></li>
+        <li><a href="login.html" class="nav-link">🔐 Perfil</a></li>
+      </ul>
+    </nav>
+
+    <div class="user-status-pill" id="header-user-pill" title="Haz clic para cambiar tu nombre de jugador">
+      <div class="user-avatar" id="header-user-avatar">J</div>
+      <div class="user-info">
+        <span class="user-name" id="header-user-name">Jugador</span>
+        <span class="user-rank">Invocador Místico</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PÁGINA DE RANKING E HISTORIAL DE PARTIDAS -->
+  <main class="page-view active">
+    <div class="ranking-container">
+      
+      <!-- Encabezado de la Sección -->
+      <section class="ranking-header">
+        <h1 class="ranking-title">🏆 Ranking & Historial de Batallas</h1>
+        <p class="ranking-subtitle">Revisa el rendimiento de tus partidas, victorias contra la Comandante IA y los mazos utilizados estilo League of Legends.</p>
+      </section>
+
+      <!-- Tarjetas de Resumen Estadístico -->
+      <section class="stats-overview-grid">
+        <div class="stat-overview-card">
+          <div class="stat-overview-icon">⚔️</div>
+          <div>
+            <div class="stat-overview-val" id="stat-total-matches">0</div>
+            <div class="stat-overview-label">Partidas Totales</div>
+          </div>
+        </div>
+
+        <div class="stat-overview-card win">
+          <div class="stat-overview-icon">🏆</div>
+          <div>
+            <div class="stat-overview-val" id="stat-wins-count" style="color: var(--neon-cyan);">0</div>
+            <div class="stat-overview-label">Victorias Jugador</div>
+          </div>
+        </div>
+
+        <div class="stat-overview-card loss">
+          <div class="stat-overview-icon">💀</div>
+          <div>
+            <div class="stat-overview-val" id="stat-losses-count" style="color: var(--neon-crimson);">0</div>
+            <div class="stat-overview-label">Victorias Máquina</div>
+          </div>
+        </div>
+
+        <div class="stat-overview-card ratio">
+          <div class="stat-overview-icon">📈</div>
+          <div>
+            <div class="stat-overview-val" id="stat-winrate" style="color: var(--neon-gold);">0%</div>
+            <div class="stat-overview-label">Tasa de Victoria</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Barra de Filtros del Historial -->
+      <section class="history-toolbar">
+        <div class="filter-group">
+          <button class="filter-pill active" id="filter-all-history" data-ranking-filter="all">Todas</button>
+          <button class="filter-pill" id="filter-wins-history" data-ranking-filter="wins">🏆 Victorias</button>
+          <button class="filter-pill" id="filter-losses-history" data-ranking-filter="losses">💀 Derrotas</button>
+        </div>
+
+        <button class="btn-danger-outline" id="btn-clear-ranking">🗑️ Borrar Historial</button>
+      </section>
+
+      <!-- Lista de Partidas Registradas (Renderizado dinámico con JS) -->
+      <section class="history-cards-list" id="ranking-cards-container">
+        <!-- Renderizado dinámico -->
+      </section>
+
+    </div>
+  </main>
+
+  <script type="module" src="../js/app.js"></script>
+</body>
+</html>

@@ -7,6 +7,7 @@
 @import url('collection.css');
 @import url('battle.css');
 @import url('login.css');
+@import url('ranking.css');
 
 :root {
   /* Dark Cosmic / Fantasy Palette */
@@ -172,6 +173,13 @@ h1, h2, h3, h4, .brand-title {
   border: 1px solid var(--border-glass);
   padding: 0.4rem 1rem;
   border-radius: 30px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.user-status-pill:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
 }
 
 .user-avatar {

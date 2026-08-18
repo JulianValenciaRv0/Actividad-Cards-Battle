@@ -6,7 +6,11 @@ import {
   dispararTemblor,
   dispararDanoEmergente,
   agregarLogBatalla,
-  renderizarFinDeJuego
+  renderizarFinDeJuego,
+  obtenerNombreJugador,
+  guardarNombreJugador,
+  mostrarModalNombreJugador,
+  renderizarRankingPage
 } from './render.js';
 
 let filtroTexto = '';
@@ -243,4 +247,66 @@ export function reiniciarBatalla(todasLasCartas) {
   inicializarJuego(mazoJugador, mazoRival);
   renderizarBatallaCompleta();
   agregarLogBatalla('⚔️ ¡Batalla reiniciada! Selecciona tu habilidad para atacar.');
+}
+
+/**
+ * Initializes global event listeners (such as clicking the user header pill to edit name)
+ */
+export function conectarEventosGlobales() {
+  const userPill = document.getElementById('header-user-pill');
+  if (userPill) {
+    userPill.addEventListener('click', () => {
+      const actual = obtenerNombreJugador();
+      const nuevoNombre = prompt('Ingresa tu nuevo nombre de jugador:', actual);
+      if (nuevoNombre && nuevoNombre.trim()) {
+        guardarNombreJugador(nuevoNombre);
+      }
+    });
+  }
+}
+
+/**
+ * Initializes event listeners on the Profile page (login.html)
+ */
+export function conectarEventosPerfil() {
+  const form = document.getElementById('profile-name-form');
+  const input = document.getElementById('profile-username-input');
+
+  if (form && input) {
+    input.value = obtenerNombreJugador();
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = input.value.trim();
+      if (val) {
+        guardarNombreJugador(val);
+        alert('¡Nombre guardado exitosamente! 🚀');
+      }
+    });
+  }
+}
+
+/**
+ * Initializes event listeners on the Ranking / Match History page
+ */
+export function conectarEventosRanking() {
+  const filterPills = document.querySelectorAll('[data-ranking-filter]');
+  const btnClear = document.getElementById('btn-clear-ranking');
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const filtro = pill.dataset.rankingFilter || 'all';
+      renderizarRankingPage(filtro);
+    });
+  });
+
+  if (btnClear) {
+    btnClear.addEventListener('click', () => {
+      if (confirm('¿Estás seguro de que deseas borrar todo tu historial de partidas y estadísticas?')) {
+        localStorage.removeItem('mythicClash_ranking');
+        renderizarRankingPage('all');
+      }
+    });
+  }
 }
