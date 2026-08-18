@@ -179,4 +179,4 @@ Este repositorio sigue la convención de **Conventional Commits** acompañada de
 
 ---
 
-<p align="center">Desarrollado con ❤️ y JavaScript Vanilla por <b>Julián Valencia</b>.</p>
+<p align="center">Desarrollado JavaScript Vanilla por <b>Julián Valencia</b>.</p>
