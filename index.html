@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mythic Clash - Página Principal</title>
+  <meta name="description" content="Juego de estrategia y batalla de cartas épico. Construye tu mazo de 5 cartas y enfrenta a la IA en la arena.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER & NAVEGACIÓN PRINCIPAL -->
+  <header class="main-header">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-icon">⚔️</div>
+      <span class="brand-name">MYTHIC CLASH</span>
+    </a>
+
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link active">🏠 Inicio</a></li>
+        <li><a href="pages/collection.html" class="nav-link">🎴 Colección & Mazo</a></li>
+        <li><a href="pages/battle.html" class="nav-link">⚔️ Arena de Batalla</a></li>
+        <li><a href="pages/login.html" class="nav-link">🔐 Iniciar Sesión</a></li>
+      </ul>
+    </nav>
+
+    <div class="user-status-pill">
+      <div class="user-avatar">J</div>
+      <div class="user-info">
+        <span class="user-name">Jugador 1</span>
+        <span class="user-rank">Nivel 5 • Rango Guerrero</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PÁGINA PRINCIPAL (HOME) -->
+  <main class="page-view active">
+    <!-- Hero Banner -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="hero-tag">NUEVA TEMPORADA DE BATALLAS</span>
+        <h1 class="hero-title">Domina la Arena de Batalla Elemental</h1>
+        <p class="hero-subtitle">
+          Colecciona cartas legendarias, diseña tu mazo perfecto de 5 cartas y desata habilidades místicas para derrotar a la IA en duelos estratégicos.
+        </p>
+        <div class="hero-cta-group">
+          <a href="pages/battle.html" class="btn btn-primary">¡JUGAR AHORA! ⚔️</a>
+          <a href="pages/collection.html" class="btn btn-secondary">VER COLECCIÓN 🎴</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Características Destacadas -->
+    <section class="features-section">
+      <div class="section-header">
+        <h2 class="section-title">Características del Juego</h2>
+        <p class="section-subtitle">Todo lo que necesitas para convertirte en el campeón de las cartas</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔥</div>
+          <h3>5 Cartas por Mazo</h3>
+          <p>Selecciona cuidadosamente tus 5 mejores cartas antes de entrar a la arena para garantizar la victoria.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>Enfrenta a la IA (5 vs 5)</h3>
+          <p>Pon a prueba tus tácticas de combate contra un oponente inteligente en un campo de 5 contra 5.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>6 Habilidades Únicas</h3>
+          <p>Combina 4 habilidades normales, 1 habilidad especial de poder máximo y 1 escudo defensivo.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

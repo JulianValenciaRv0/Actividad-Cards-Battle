@@ -1,0 +1,214 @@
+/* ==========================================================================
+   Mythic Clash: Base Design System & Master CSS
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Outfit:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
+@import url('home.css');
+@import url('collection.css');
+@import url('battle.css');
+@import url('login.css');
+
+:root {
+  /* Dark Cosmic / Fantasy Palette */
+  --bg-deep: #070913;
+  --bg-surface: #0f1325;
+  --bg-card: rgba(18, 24, 46, 0.85);
+  --bg-glass: rgba(255, 255, 255, 0.04);
+  --border-glass: rgba(255, 255, 255, 0.12);
+
+  /* Neon Elemental Accents */
+  --neon-cyan: #00f3ff;
+  --neon-blue: #0077ff;
+  --neon-purple: #9d4edd;
+  --neon-gold: #ffb703;
+  --neon-crimson: #ff0055;
+  --neon-emerald: #00f5d4;
+  --neon-amber: #f77f00;
+
+  /* Rarity Colors */
+  --rarity-common: #8d99ae;
+  --rarity-rare: #00b4d8;
+  --rarity-epic: #9d4edd;
+  --rarity-legendary: #ffb703;
+
+  /* Element Colors */
+  --element-fire: #ff4d4d;
+  --element-water: #00b4d8;
+  --element-earth: #2ec4b6;
+  --element-air: #e0aaff;
+  --element-dark: #7b2cbf;
+
+  /* Typography */
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-stats: 'Rajdhani', sans-serif;
+
+  /* Visual Transitions & Shadows */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --glow-cyan: 0 0 20px rgba(0, 243, 255, 0.35);
+  --glow-gold: 0 0 20px rgba(255, 183, 3, 0.35);
+  --glow-purple: 0 0 20px rgba(157, 78, 221, 0.35);
+}
+
+/* Reset & Global Settings */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-deep);
+  color: #e2e8f0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(0, 243, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(157, 78, 221, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(7, 9, 19, 0.9) 0%, #070913 100%);
+  background-attachment: fixed;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 243, 255, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+}
+
+/* Typography Utility */
+h1, h2, h3, h4, .brand-title {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Header & Global Navigation */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7, 9, 19, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-glass);
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: var(--glow-cyan);
+}
+
+.brand-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ffffff, var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-link {
+  color: #94a3b8;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--neon-cyan);
+  background: rgba(0, 243, 255, 0.06);
+  border-color: rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.15);
+}
+
+.user-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(18, 24, 46, 0.8);
+  border: 1px solid var(--border-glass);
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--neon-gold), var(--neon-amber));
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #000;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.user-rank {
+  font-size: 0.7rem;
+  color: var(--neon-gold);
+  font-family: var(--font-stats);
+}
+
+/* Page View Base */
+.page-view {
+  display: block;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

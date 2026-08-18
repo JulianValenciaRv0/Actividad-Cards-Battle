@@ -1,0 +1,1042 @@
+[
+  {
+    "id": 1,
+    "name": "Dragón Infernal",
+    "element": "fuego",
+    "rarity": "legendary",
+    "hpMax": 1200,
+    "hpActual": 1200,
+    "escudo": 0,
+    "damage": 220,
+    "description": "Señor de los volcanes que abrasa el campo enemigo con un aliento de fuego incandescente.",
+    "skills": [
+      "Aliento Abrasador",
+      "Furia de Lava",
+      "Garras de Fuego",
+      "Ceniza Volcánica",
+      "Coraza Ígnea",
+      "Cometa Infernal"
+    ],
+    "image": "assets/images/dragon.jpg",
+    "habilidades": [
+      {
+        "nombre": "Aliento Abrasador",
+        "dano": 120,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Garras de Fuego",
+        "dano": 140,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Furia de Lava",
+        "dano": 180,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Ceniza Volcánica",
+        "dano": 100,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Coraza Ígnea",
+        "escudo": 150,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Cometa Infernal",
+        "dano": 350,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Mago de Hielo",
+    "element": "agua",
+    "rarity": "rare",
+    "hpMax": 950,
+    "hpActual": 950,
+    "escudo": 0,
+    "damage": 160,
+    "description": "Maestro del frío eterno que congela las tropas enemigas y ralentiza sus movimientos.",
+    "skills": [
+      "Ráfaga Helada",
+      "Carámbano Cortante",
+      "Prisión de Hielo",
+      "Viento Glacial",
+      "Escudo de Escarcha",
+      "Ventisca Zero"
+    ],
+    "image": "assets/images/frost_mage.jpg",
+    "habilidades": [
+      {
+        "nombre": "Ráfaga Helada",
+        "dano": 80,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Carámbano Cortante",
+        "dano": 100,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Prisión de Hielo",
+        "dano": 120,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Viento Glacial",
+        "dano": 70,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Escudo de Escarcha",
+        "escudo": 120,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Ventisca Zero",
+        "dano": 260,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Asesino Sombrío",
+    "element": "oscuridad",
+    "rarity": "epic",
+    "hpMax": 800,
+    "hpActual": 800,
+    "escudo": 0,
+    "damage": 210,
+    "description": "Guerrero furtivo que se mueve entre las sombras e inflige ataques críticos letales.",
+    "skills": [
+      "Dagas Venenosas",
+      "Paso de Sombra",
+      "Corte Furtivo",
+      "Emboscada Penumbral",
+      "Manto de Oscuridad",
+      "Ejecución de la Sombra"
+    ],
+    "image": "assets/images/shadow_assassin.jpg",
+    "habilidades": [
+      {
+        "nombre": "Dagas Venenosas",
+        "dano": 110,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Paso de Sombra",
+        "dano": 130,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Corte Furtivo",
+        "dano": 150,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Emboscada Penumbral",
+        "dano": 90,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Manto de Oscuridad",
+        "escudo": 100,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Ejecución de la Sombra",
+        "dano": 320,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Golem de Cristal",
+    "element": "tierra",
+    "rarity": "rare",
+    "hpMax": 1400,
+    "hpActual": 1400,
+    "escudo": 0,
+    "damage": 120,
+    "description": "Coloso de piedra imbuido con energía telúrica que aplasta la primera línea enemiga.",
+    "skills": [
+      "Impacto Telúrico",
+      "Onda Terrestre",
+      "Puño de Granito",
+      "Lluvia de Cuarzo",
+      "Fortaleza Prismática",
+      "Cataclismo de Cristal"
+    ],
+    "image": "assets/images/golem.jpg",
+    "habilidades": [
+      {
+        "nombre": "Impacto Telúrico",
+        "dano": 70,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Onda Terrestre",
+        "dano": 85,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Puño de Granito",
+        "dano": 100,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Lluvia de Cuarzo",
+        "dano": 60,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Fortaleza Prismática",
+        "escudo": 200,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Cataclismo de Cristal",
+        "dano": 240,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Caballero Fénix",
+    "element": "fuego",
+    "rarity": "epic",
+    "hpMax": 1100,
+    "hpActual": 1100,
+    "escudo": 0,
+    "damage": 190,
+    "description": "Guerrero sagrado envuelto en llamas eternas que renace con mayor fuerza en la batalla.",
+    "skills": [
+      "Escudo del Renacer",
+      "Estallido Solar",
+      "Espada Llameante",
+      "Carga de Fuego",
+      "Chispa Sagrada",
+      "Llamarada Divina"
+    ],
+    "image": "assets/images/phoenix_knight.jpg",
+    "habilidades": [
+      {
+        "nombre": "Estallido Solar",
+        "dano": 100,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Espada Llameante",
+        "dano": 125,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Carga de Fuego",
+        "dano": 140,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Chispa Sagrada",
+        "dano": 80,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Escudo del Renacer",
+        "escudo": 140,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Llamarada Divina",
+        "dano": 310,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Valquiria Celestial",
+    "element": "luz",
+    "rarity": "legendary",
+    "hpMax": 1300,
+    "hpActual": 1300,
+    "escudo": 0,
+    "damage": 240,
+    "description": "Guerrera alada que desciende de los cielos blandiendo una lanza de luz pura.",
+    "skills": [
+      "Lanza Divina",
+      "Bendición Sagrada",
+      "Corte de Luz",
+      "Vuelo Sagrado",
+      "Destello Celestial",
+      "Juicio del Heptágono"
+    ],
+    "image": "assets/images/celestial_valkyrie.jpg",
+    "habilidades": [
+      {
+        "nombre": "Lanza Divina",
+        "dano": 130,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Corte de Luz",
+        "dano": 150,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Vuelo Sagrado",
+        "dano": 170,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Destello Celestial",
+        "dano": 110,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Bendición Sagrada",
+        "escudo": 160,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Juicio del Heptágono",
+        "dano": 360,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Nidhoggr el Devorador",
+    "element": "oscuridad",
+    "rarity": "legendary",
+    "hpMax": 1600,
+    "hpActual": 1600,
+    "escudo": 0,
+    "damage": 280,
+    "description": "Dragón abisal de las sombras capaz de consumir la vitalidad de sus oponentes.",
+    "skills": [
+      "Maldición de Sangre",
+      "Devorador de Almas",
+      "Garras Abisales",
+      "Aliento de Oscuridad",
+      "Escudo Umbrío",
+      "Ragnarok Sombrío"
+    ],
+    "image": "assets/images/nidhoggr.jpg",
+    "habilidades": [
+      {
+        "nombre": "Maldición de Sangre",
+        "dano": 140,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Devorador de Almas",
+        "dano": 170,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Garras Abisales",
+        "dano": 190,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Aliento de Oscuridad",
+        "dano": 120,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Escudo Umbrío",
+        "escudo": 180,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Ragnarok Sombrío",
+        "dano": 400,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Archimago de la Tormenta",
+    "element": "viento",
+    "rarity": "epic",
+    "hpMax": 900,
+    "hpActual": 900,
+    "escudo": 0,
+    "damage": 230,
+    "description": "Hechicero supremo que manipula relámpagos y vendavales para arrasar ejércitos.",
+    "skills": [
+      "Rayo Devastador",
+      "Torbellino Elemental",
+      "Ciclón Cortante",
+      "Trueno Resonante",
+      "Barrera de Viento",
+      "Tormenta de Huracanes"
+    ],
+    "image": "assets/images/storm_archmage.jpg",
+    "habilidades": [
+      {
+        "nombre": "Rayo Devastador",
+        "dano": 120,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Torbellino Elemental",
+        "dano": 140,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Ciclón Cortante",
+        "dano": 160,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Trueno Resonante",
+        "dano": 100,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Barrera de Viento",
+        "escudo": 110,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Tormenta de Huracanes",
+        "dano": 330,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Sirena Coralina",
+    "element": "agua",
+    "rarity": "rare",
+    "hpMax": 850,
+    "hpActual": 850,
+    "escudo": 0,
+    "damage": 140,
+    "description": "Guardiana de los arrecifes cuyo canto místico cautiva y sana a los aliados.",
+    "skills": [
+      "Canto Místico",
+      "Marea Curativa",
+      "Marea Marina",
+      "Chorro de Arrecife",
+      "Burbuja Punzante",
+      "Maelstrom Coralino"
+    ],
+    "image": "assets/images/coral_siren.jpg",
+    "habilidades": [
+      {
+        "nombre": "Canto Místico",
+        "dano": 70,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Marea Marina",
+        "dano": 90,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Chorro de Arrecife",
+        "dano": 105,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Burbuja Punzante",
+        "dano": 60,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Marea Curativa",
+        "escudo": 130,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Maelstrom Coralino",
+        "dano": 250,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Troll de la Montaña",
+    "element": "tierra",
+    "rarity": "common",
+    "hpMax": 1500,
+    "hpActual": 1500,
+    "escudo": 0,
+    "damage": 130,
+    "description": "Bruto gigantesco de piel rocosa que soporta castigos masivos en vanguardia.",
+    "skills": [
+      "Garrote de Roca",
+      "Regeneración Salvaje",
+      "Pisotón de Cobre",
+      "Lanzamiento de Peñasco",
+      "Topetazo Salvaje",
+      "Derrumbe Montañoso"
+    ],
+    "image": "assets/images/mountain_troll.jpg",
+    "habilidades": [
+      {
+        "nombre": "Garrote de Roca",
+        "dano": 75,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Pisotón de Cobre",
+        "dano": 90,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Lanzamiento de Peñasco",
+        "dano": 110,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Topetazo Salvaje",
+        "dano": 65,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Piel Petrificada",
+        "escudo": 170,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Derrumbe Montañoso",
+        "dano": 240,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Elfo del Bosque Ancestral",
+    "element": "tierra",
+    "rarity": "rare",
+    "hpMax": 750,
+    "hpActual": 750,
+    "escudo": 0,
+    "damage": 150,
+    "description": "Arquero sigiloso de los bosques milenarios con disparos certeros e invisibilidad.",
+    "skills": [
+      "Flecha Envenenada",
+      "Camuflaje Arbóreo",
+      "Disparo Certero",
+      "Trampa Arbórea",
+      "Ráfaga Silvana",
+      "Lluvia de Flechas Ancestral"
+    ],
+    "image": "assets/images/wood_elf.jpg",
+    "habilidades": [
+      {
+        "nombre": "Flecha Envenenada",
+        "dano": 85,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Disparo Certero",
+        "dano": 105,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Trampa Arbórea",
+        "dano": 120,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Ráfaga Silvana",
+        "dano": 70,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Camuflaje Arbóreo",
+        "escudo": 95,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Lluvia de Flechas Ancestral",
+        "dano": 270,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Espíritu Volcánico",
+    "element": "fuego",
+    "rarity": "common",
+    "hpMax": 650,
+    "hpActual": 650,
+    "escudo": 0,
+    "damage": 170,
+    "description": "Entidad de magma puro que detona al entrar en contacto con las tropas enemigas.",
+    "skills": [
+      "Chispa Explosiva",
+      "Cuerpo Incandescente",
+      "Lava Ardiente",
+      "Llama Furia",
+      "Brote de Magma",
+      "Erupción Total"
+    ],
+    "image": "assets/images/volcanic_spirit.jpg",
+    "habilidades": [
+      {
+        "nombre": "Chispa Explosiva",
+        "dano": 95,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Lava Ardiente",
+        "dano": 115,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Llama Furia",
+        "dano": 130,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Brote de Magma",
+        "dano": 80,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Escudo Térmico",
+        "escudo": 85,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Erupción Total",
+        "dano": 290,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Paladín Dorado",
+    "element": "luz",
+    "rarity": "epic",
+    "hpMax": 1450,
+    "hpActual": 1450,
+    "escudo": 0,
+    "damage": 180,
+    "description": "Defensor inquebrantable portador de una armadura dorada e imbuido de fe inalterable.",
+    "skills": [
+      "Justicia Divina",
+      "Aura Bastión",
+      "Golpe de Escudo",
+      "Corte de Fe",
+      "Castigo Consagrado",
+      "Cólera Celestial"
+    ],
+    "image": "assets/images/golden_paladin.jpg",
+    "habilidades": [
+      {
+        "nombre": "Justicia Divina",
+        "dano": 100,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Golpe de Escudo",
+        "dano": 120,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Corte de Fe",
+        "dano": 135,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Castigo Consagrado",
+        "dano": 85,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Aura Bastión",
+        "escudo": 180,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Cólera Celestial",
+        "dano": 300,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Nigromante Tenebroso",
+    "element": "oscuridad",
+    "rarity": "epic",
+    "hpMax": 880,
+    "hpActual": 880,
+    "escudo": 0,
+    "damage": 200,
+    "description": "Invocador de los no-muertos que canaliza magia oscura para drenar a sus rivales.",
+    "skills": [
+      "Invocación Esquelética",
+      "Drenaje Vital",
+      "Orbe Putrefacto",
+      "Maldición Macabra",
+      "Escudo Cadavérico",
+      "Rebelión de las Sombras"
+    ],
+    "image": "assets/images/dark_necromancer.jpg",
+    "habilidades": [
+      {
+        "nombre": "Invocación Esquelética",
+        "dano": 105,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Drenaje Vital",
+        "dano": 125,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Orbe Putrefacto",
+        "dano": 140,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Maldición Macabra",
+        "dano": 90,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Escudo Cadavérico",
+        "escudo": 110,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Rebelión de las Sombras",
+        "dano": 315,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Elemental de Viento",
+    "element": "viento",
+    "rarity": "common",
+    "hpMax": 500,
+    "hpActual": 500,
+    "escudo": 0,
+    "damage": 110,
+    "description": "Espíritu veloz de aire que desconcierta y esquiva los ataques físicos con facilidad.",
+    "skills": [
+      "Ráfaga Cortante",
+      "Esquiva Celeridad",
+      "Vendaval Furioso",
+      "Brisa Afilada",
+      "Escudo de Viento",
+      "Huracán Espiral"
+    ],
+    "image": "assets/images/wind_elemental.jpg",
+    "habilidades": [
+      {
+        "nombre": "Ráfaga Cortante",
+        "dano": 60,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Esquiva Celeridad",
+        "dano": 75,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Vendaval Furioso",
+        "dano": 90,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Brisa Afilada",
+        "dano": 50,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Escudo de Viento",
+        "escudo": 75,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Huracán Espiral",
+        "dano": 220,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Krakén de las Profundidades",
+    "element": "agua",
+    "rarity": "legendary",
+    "hpMax": 1800,
+    "hpActual": 1800,
+    "escudo": 0,
+    "damage": 260,
+    "description": "Mounstruo colosal de los océanos abisales que arrastra barcos y tropas al fondo del mar.",
+    "skills": [
+      "Tsunami Devastador",
+      "Presión Abisal",
+      "Azote de Tentáculo",
+      "Chorro de Tinta",
+      "Burbuja Abisal",
+      "Cataclismo Oceánico"
+    ],
+    "image": "assets/images/kraken.jpg",
+    "habilidades": [
+      {
+        "nombre": "Tsunami Devastador",
+        "dano": 140,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Presión Abisal",
+        "dano": 165,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Azote de Tentáculo",
+        "dano": 185,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Chorro de Tinta",
+        "dano": 115,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Burbuja Abisal",
+        "escudo": 190,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Cataclismo Oceánico",
+        "dano": 380,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Cazadora de Sombras",
+    "element": "oscuridad",
+    "rarity": "rare",
+    "hpMax": 820,
+    "hpActual": 820,
+    "escudo": 0,
+    "damage": 175,
+    "description": "Ranger nocturna que embosca a sus presas utilizando ballestas de energía penumbral.",
+    "skills": [
+      "Tiro Penumbral",
+      "Trampa de Oscuridad",
+      "Ballesta Nocturna",
+      "Flecha Sombría",
+      "Velo Nocturno",
+      "Lluvia Penumbral"
+    ],
+    "image": "assets/images/shadow_hunter.jpg",
+    "habilidades": [
+      {
+        "nombre": "Tiro Penumbral",
+        "dano": 90,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Trampa de Oscuridad",
+        "dano": 110,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Ballesta Nocturna",
+        "dano": 125,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Flecha Sombría",
+        "dano": 75,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Velo Nocturno",
+        "escudo": 100,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Lluvia Penumbral",
+        "dano": 280,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Chamán del Rayo",
+    "element": "viento",
+    "rarity": "rare",
+    "hpMax": 890,
+    "hpActual": 890,
+    "escudo": 0,
+    "damage": 165,
+    "description": "Líder espiritual capaz de invocar tótemes de tormenta y cadenas de relámpagos.",
+    "skills": [
+      "Cadena de Rayos",
+      "Tótem del Viento",
+      "Choque Eléctrico",
+      "Chispa de Tormenta",
+      "Escudo Voltaico",
+      "Tormenta de Relámpagos"
+    ],
+    "image": "assets/images/lightning_shaman.jpg",
+    "habilidades": [
+      {
+        "nombre": "Cadena de Rayos",
+        "dano": 85,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Tótem del Viento",
+        "dano": 105,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Choque Eléctrico",
+        "dano": 120,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Chispa de Tormenta",
+        "dano": 70,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Escudo Voltaico",
+        "escudo": 115,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Tormenta de Relámpagos",
+        "dano": 285,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Minotauro Furioso",
+    "element": "tierra",
+    "rarity": "rare",
+    "hpMax": 1350,
+    "hpActual": 1350,
+    "escudo": 0,
+    "damage": 195,
+    "description": "Biazo de fuerza bruta que embiste contra las murallas e inflige daño de área.",
+    "skills": [
+      "Carga Brutal",
+      "Pisotón Sísmico",
+      "Hachazo de Ruina",
+      "Cornada Salvaje",
+      "Armadura Caída",
+      "Furia de Coloso"
+    ],
+    "image": "assets/images/furious_minotaur.jpg",
+    "habilidades": [
+      {
+        "nombre": "Carga Brutal",
+        "dano": 100,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Pisotón Sísmico",
+        "dano": 120,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Hachazo de Ruina",
+        "dano": 140,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Cornada Salvaje",
+        "dano": 85,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Armadura Caída",
+        "escudo": 150,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Furia de Coloso",
+        "dano": 300,
+        "tipo": "especial"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Furia Solar",
+    "element": "fuego",
+    "rarity": "rare",
+    "hpMax": 780,
+    "hpActual": 780,
+    "escudo": 0,
+    "damage": 185,
+    "description": "Avatar del sol naciente que emite radiación sofocante y ráfagas térmicas.",
+    "skills": [
+      "Rayo Solar",
+      "Calor Sofocante",
+      "Ráfaga Térmica",
+      "Destello Calcinante",
+      "Aura Solar",
+      "Supernova Radiante"
+    ],
+    "image": "assets/images/sun_furia.jpg",
+    "habilidades": [
+      {
+        "nombre": "Rayo Solar",
+        "dano": 95,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Calor Sofocante",
+        "dano": 115,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Ráfaga Térmica",
+        "dano": 130,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Destello Calcinante",
+        "dano": 80,
+        "tipo": "ataque"
+      },
+      {
+        "nombre": "Aura Solar",
+        "escudo": 95,
+        "tipo": "defensa"
+      },
+      {
+        "nombre": "Supernova Radiante",
+        "dano": 290,
+        "tipo": "especial"
+      }
+    ]
+  }
+]
